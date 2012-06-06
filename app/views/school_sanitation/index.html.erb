@@ -2,12 +2,30 @@
 	<table>
 		<tr>
 			<th>Districts</th>
-			<th>Total_No_of_Community_Schools</th>			
+			<th>Total_No_of_Community_Schools</th>
+      <th>total_no_of_schools_with_toilet_facilities</th>
+      <th>percentage_of_schools_with_toilet_facilities</th>
+      <th>total_no_of_toilet_facilities_inclusive_of_each_toilet_item</th>
+      <th>total_no_of_toilets_for_girl_students_with_items_facilities</th>
+      <th>percentage_of_separate_toilets_for_girls_with_items_facilities</th>
+      <th>total_students_boys_and_girls</th>
+      <th>toilet_to_student_ratio</th>
+      <th>percentage_of_schools_with_separate_toilets_for_girls</th>
+      <th>districts_ranked_by_girl_students_access_to_school_sanitation</th>
 		</tr>
 		<% for district in @districts %>
 			<tr>
 			  <td><%= district.districts %></td>
 			  <td><%= district.total_no_of_community_schools %></td>
+        <td><%= district.total_no_of_schools_with_toilet_facilities %></td>
+        <td><%= district.percentage_of_schools_with_toilet_facilities %></td>
+        <td><%= district.total_no_of_toilet_facilities_inclusive_of_each_toilet_item %></td>
+        <td><%= district.total_no_of_toilets_for_girl_students_with_items_facilities %></td>
+        <td><%= district.percentage_of_separate_toilets_for_girls_with_items_facilities %></td>
+        <td><%= district.total_students_boys_and_girls %></td>
+        <td><%= district.toilet_to_student_ratio %></td>
+        <td><%= district.percentage_of_schools_with_separate_toilets_for_girls %></td>
+        <td><%= district.districts_ranked_by_girl_students_access_to_school_sanitation %></td>
 			</tr>
 		<% end %>
 	</table>
