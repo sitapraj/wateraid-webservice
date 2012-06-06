@@ -5,6 +5,7 @@ WateraidWebservice::Application.routes.draw do
       resources :school_sanitation
     end
   end
-
-  # root :to => 'api_v1_school_sanitation#index'
+  
+  resources :school_sanitation
+  root :to => 'school_sanitation#index'
 end
