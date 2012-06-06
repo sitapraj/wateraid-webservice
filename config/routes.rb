@@ -6,5 +6,5 @@ WateraidWebservice::Application.routes.draw do
     end
   end
 
-  root :to => 'api_v1_school_sanitation#index'
+  # root :to => 'api_v1_school_sanitation#index'
 end

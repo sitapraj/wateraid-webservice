@@ -1,0 +1,18 @@
+<% if @districts.count != 0 %>
+	<table>
+		<tr>
+			<th>Districts</th>
+			<th>Total_No_of_Community_Schools</th>			
+		</tr>
+		<% for district in @districts %>
+			<tr>
+			  <td><%= district.districts %></td>
+			  <td><%= district.total_no_of_community_schools %></td>
+			</tr>
+		<% end %>
+	</table>
+<% else %>
+	<div class="error">		
+		<h3>Cannot find the given Location</h3>
+	</div>
+<% end %>
