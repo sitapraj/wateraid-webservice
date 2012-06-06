@@ -1,3 +1,0 @@
-
-class SchoolSanitationController < ApplicationController
-end
