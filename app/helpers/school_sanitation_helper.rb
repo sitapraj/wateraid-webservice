@@ -1,0 +1,2 @@
+module SchoolSanitationHelper
+end

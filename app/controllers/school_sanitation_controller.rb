@@ -1,0 +1,3 @@
+
+class SchoolSanitationController < ApplicationController
+end
