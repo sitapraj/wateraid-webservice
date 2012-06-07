@@ -7,20 +7,8 @@ module Api
         respond_with DistrictGirlSanitationCommunitySchool.all
       end
       
-      def show
-        respond_with DistrictGirlSanitationCommunitySchool.find(params[:id])
-      end
-      
-      def create
-        respond_with DistrictGirlSanitationCommunitySchool.create(params[:districtgirlsanitationcommunityschool])
-      end
-      
-      def update
-        respond_with DistrictGirlSanitationCommunitySchool.update(params[:id], params[:districtgirlsanitationcommunityschool])
-      end
-      
-      def destory
-        respond_with DistrictGirlSanitationCommunitySchool.destroy(params[:id])
+      def search
+        respond_with DistrictGirlSanitationCommunitySchool.where(:districts => params[:district].upcase).first
       end
     end
   end

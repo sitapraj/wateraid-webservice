@@ -2,13 +2,15 @@
 <h4><i>The neglected development link</i></h4>
 <h2>District-Wise(Girl) Students' Access to Sanitation in Community Schools</h2>
 
-<%= form_tag school_sanitation_search_path, :method => :get do %>
+<%= form_tag api_v1_school_sanitation_search_path, :method => :get do %>
 	<p>
 	  <%= text_field_tag :district, params[:district], :class => 'search' %>
 	  <%= submit_tag "Search", :name => nil, :class => 'submit'%>
 	</p>
 <% end %>
+
 <p id="notice"><%= notice %></p>
+
 <p>  
   Total Number of Community Schools: <%= @total_no_of_community_schools.to_i %><br/>
   Total Number of Schools with Toilet Facilities: <%= @total_no_of_schools_with_toilet_facilities.to_i %><br/>

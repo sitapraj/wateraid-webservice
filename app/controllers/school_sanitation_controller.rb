@@ -19,18 +19,6 @@ class SchoolSanitationController < ApplicationController
       format.json { render :json =>  @districts }      
     end
   end
-  
-  def search
-    @district = DistrictGirlSanitationCommunitySchool.where(districts: params[:district].upcase).first
-    
-    respond_to do |format|
-      if @district
-        format.html
-      else
-        format.html { redirect_to school_sanitation_index_path, notice: 'Invalid District!' }
-      end
-    end
-  end
     
   def export_to_csv
     @districts = DistrictGirlSanitationCommunitySchool.all
