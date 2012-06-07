@@ -6,6 +6,8 @@ WateraidWebservice::Application.routes.draw do
     end
   end
   
+  get 'school_sanitation/export_to_csv'
   resources :school_sanitation
+  
   root :to => 'school_sanitation#index'
 end

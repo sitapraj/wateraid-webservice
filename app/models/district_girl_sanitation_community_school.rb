@@ -1,6 +1,6 @@
 class DistrictGirlSanitationCommunitySchool
   include Mongoid::Document
-  
+
   field :districts, type: String
   field :total_no_of_community_schools, type: Integer
   field :total_no_of_schools_with_toilet_facilities, type: Integer
