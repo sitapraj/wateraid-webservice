@@ -14,16 +14,24 @@ class SchoolSanitationController < ApplicationController
     @total_no_of_district = DistrictGirlSanitationCommunitySchool.count()
     
     respond_to do |format|
-      format.html
+      format.html 
       format.xml { render :xml => @districts }
       format.json { render :json =>  @districts }      
     end
   end
   
-  def total_average
-    @total_no_of_community_schools = DistrictGirlSanitationCommunitySchool.sum(:total_no_of_community_schools)
+  def search
+    @district = DistrictGirlSanitationCommunitySchool.where(districts: params[:district].upcase).first
+    
+    respond_to do |format|
+      if @district
+        format.html
+      else
+        format.html { redirect_to school_sanitation_index_path, notice: 'Invalid District!' }
+      end
+    end
   end
-  
+    
   def export_to_csv
     @districts = DistrictGirlSanitationCommunitySchool.all
     
