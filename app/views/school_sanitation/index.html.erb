@@ -9,7 +9,12 @@
 	</p>
 <% end %>
 
+<%= render :template => 'nepalmap/index'%>
+
 <p id="notice"><%= notice %></p>
+<script>
+  console.log($('#frame').contents());
+</script>
 
 <p>  
   Total Number of Community Schools: <%= @total_no_of_community_schools.to_i %><br/>
@@ -23,6 +28,12 @@
   Avg. Percentage of Schools with Separate Toilets for Girls: <%= @percentage_of_schools_with_separate_toilets_for_girls.to_i %><br/>
   Total Number of Districts: <%= @total_no_of_district.to_i %><br/>
 </p>
+
 <%= link_to "Download JSON file", school_sanitation_index_path('json') %> ||
 <%= link_to "Download XML file", school_sanitation_index_path('xml') %> ||
 <%= link_to "Download CSV file", school_sanitation_export_to_csv_path %>
+
+
+
+
+

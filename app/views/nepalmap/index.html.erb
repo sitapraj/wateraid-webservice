@@ -1,0 +1,112 @@
+<style>
+  div.district_summary {
+  	z-index: 4;
+  	position: fixed;
+  	top: 300px;
+  	left: 600px;
+  	border: 1px;
+  }
+</style>
+
+<div id="map" style="height: 450px; width:775px"></div>
+<div id="name" class="district_summary"></div>
+<script>
+	
+	var NepalMap = function(options) {
+		var self = this,	
+			map = null,		
+			options = options;
+
+		this.init = function() {
+			map = new L.Map(options.mapcontrol_id, {
+				dragging: false, 
+				zoomControl: false, 
+				scrollWheelZoom: false, 
+				doubleClickZoom: false, 
+				touchZoom: false, 
+				trackResize: false, 
+				attributionControl: false
+				});			
+			map.setView(new L.LatLng(28.40, 84.15), 7);
+			self.initMap();
+
+		};
+
+		this.addDistrict = function(district_layer) {
+			self.map.addLayer(district_layer.get())
+		};
+
+		this.initMap = function() {	
+			var geojsonLayer = [];
+			for(var i=0;i<75;i++) {
+				geojsonLayer[i] = new DistrictLayer({geojsonObject: options.districts[i], name:"DIST_NAME"});
+				map.addLayer(geojsonLayer[i].get());
+			}
+		};
+	};
+
+	var DistrictCollection = function() {
+		var self = this,
+			districts = null;
+
+		this.init = function(districts_objects) {
+			self.districts = [];
+			for(var i=0;i<75;i++) {
+				self.districts.push(new DistrictLayer({geojsonObject:districts_objects[i], name:"DIST_NAME"}));
+			}
+		};
+
+		this.getArray = function() {
+			return self.districts;
+		};
+
+		this.get = function(index) {
+			return self.districts(index);
+		};
+	};
+	
+	var DistrictLayer = function(options) {
+		var self = this,
+			options = options,			
+			name = null;
+
+		this.set = function(GeoJSONObject) {
+			self.geojsonLayer = new L.GeoJSON();	
+			self.geojsonLayer.on('featureparse', self.parse);
+		    self.geojsonLayer.on('click', self.click);
+		    self.geojsonLayer.on('mouseover', function(e) {
+		    	e.layer.setStyle({fillColor:"red"})
+		    });
+		    self.geojsonLayer.on('mouseout', function(e) {
+		    	e.layer.setStyle({fillColor:"blue"})
+		    });
+			self.geojsonLayer.addGeoJSON(GeoJSONObject);
+		};
+		
+		this.get = function() {
+			return self.geojsonLayer;
+		};
+
+		this.parse = function(e) {
+			self.name = e.properties[options.name];
+		    var popupContent = self.name + "<Br>Loading ............";
+		    if (e.properties && e.properties.popupContent) {
+		        popupContent += e.properties.popupContent;
+		    }
+	      e.layer.setStyle({weight:1, fillColor:"blue"});
+		};
+
+		this.click = function(e) {
+      e.layer.setStyle({fillColor:"green"})
+      //$(".leaflet-popup-content").html(self.name);
+      $("#name").html(self.name + "<br>");
+			console.log(self.name);
+      window.top.location.href = "http://localhost:3000/api/v1/school_sanitation/search?utf8=%E2%9C%93&district="+self.name;
+		};
+
+		this.set(options.geojsonObject);
+	};
+
+	var map = new NepalMap({mapcontrol_id: 'map', districts: districts});
+	map.init();
+</script>
