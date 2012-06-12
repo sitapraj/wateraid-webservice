@@ -1,17 +1,9 @@
+require 'csv'
+
 class SchoolSanitationController < ApplicationController
   
   def index
     @districts = DistrictGirlSanitationCommunitySchool.all
-    @total_no_of_community_schools = DistrictGirlSanitationCommunitySchool.sum(:total_no_of_community_schools)
-    @total_no_of_schools_with_toilet_facilities = DistrictGirlSanitationCommunitySchool.sum(:total_no_of_schools_with_toilet_facilities)
-    @percentage_of_schools_with_toilet_facilities = DistrictGirlSanitationCommunitySchool.avg(:percentage_of_schools_with_toilet_facilities)
-    @total_no_of_toilet_facilities_inclusive_of_each_toilet_item = DistrictGirlSanitationCommunitySchool.sum(:total_no_of_toilet_facilities_inclusive_of_each_toilet_item)
-    @total_no_of_toilets_for_girl_students_with_items_facilities = DistrictGirlSanitationCommunitySchool.sum(:total_no_of_toilets_for_girl_students_with_items_facilities)
-    @percentage_of_separate_toilets_for_girls_with_items_facilities = DistrictGirlSanitationCommunitySchool.avg(:percentage_of_separate_toilets_for_girls_with_items_facilities)
-    @total_students_boys_and_girls = DistrictGirlSanitationCommunitySchool.sum(:total_students_boys_and_girls)
-    @toilet_to_student_ratio = DistrictGirlSanitationCommunitySchool.avg(:toilet_to_student_ratio)
-    @percentage_of_schools_with_separate_toilets_for_girls = DistrictGirlSanitationCommunitySchool.avg(:percentage_of_schools_with_separate_toilets_for_girls)
-    @total_no_of_district = DistrictGirlSanitationCommunitySchool.count()
     
     respond_to do |format|
       format.html 
@@ -59,6 +51,10 @@ class SchoolSanitationController < ApplicationController
     send_data csv_string, 
       :type => 'text/csv; charset=iso-8859-1; header=present', 
       :disposition => "attachment; filename=districts.csv"
+  end
+  
+  def wateraid
+    render :wateraid
   end
   
 end

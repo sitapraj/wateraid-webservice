@@ -1,3 +1,4 @@
+<%= image_tag("opendata.png", :alt => "open data") %>
 <h1>The State of School Sanitation in Nepal</h1>
 <h4><i>The neglected development link</i></h4>
 <h2>District-Wise(Girl) Students' Access to Sanitation in Community Schools</h2>
@@ -12,22 +13,8 @@
 <%= render :template => 'nepalmap/index'%>
 
 <p id="notice"><%= notice %></p>
-<script>
-  console.log($('#frame').contents());
-</script>
 
-<p>  
-  Total Number of Community Schools: <%= @total_no_of_community_schools.to_i %><br/>
-  Total Number of Schools with Toilet Facilities: <%= @total_no_of_schools_with_toilet_facilities.to_i %><br/>
-  Avg. Percentage of Schools with Toilet Facilities: <%= @percentage_of_schools_with_toilet_facilities.to_i %><br/>
-  Total Number of Toilet Facilities Inclusive of Each Toilet Item: <%= @total_no_of_toilet_facilities_inclusive_of_each_toilet_item.to_i %><br/>
-  Total Number of Toilets for Girl Students with Items Facilities: <%= @total_no_of_toilets_for_girl_students_with_items_facilities.to_i %><br/>
-  Avg. Percentage of Separate Toilets for Girls with Items Facilities: <%= @percentage_of_separate_toilets_for_girls_with_items_facilities.to_i %><br/>
-  Total Students Boys and Girls: <%= @total_students_boys_and_girls.to_i %><br/>
-  Toilet to Student Ratio: <%= @toilet_to_student_ratio %><br/>
-  Avg. Percentage of Schools with Separate Toilets for Girls: <%= @percentage_of_schools_with_separate_toilets_for_girls.to_i %><br/>
-  Total Number of Districts: <%= @total_no_of_district.to_i %><br/>
-</p>
+<%= link_to "Water Aid Infographics", school_sanitation_wateraid_path %> ||
 
 <%= link_to "Download JSON file", school_sanitation_index_path('json') %> ||
 <%= link_to "Download XML file", school_sanitation_index_path('xml') %> ||

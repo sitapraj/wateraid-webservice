@@ -12,10 +12,9 @@
 <div id="name" class="district_summary"></div>
 <script>
 	
+  var data_location = "http://localhost:3000/api/v1/school_sanitation/search?utf8=%E2%9C%93&district=";
 	var NepalMap = function(options) {
-		var self = this,	
-			map = null,		
-			options = options;
+		var self = this, map = null, options = options;
 
 		this.init = function() {
 			map = new L.Map(options.mapcontrol_id, {
@@ -99,9 +98,9 @@
 		this.click = function(e) {
       e.layer.setStyle({fillColor:"green"})
       //$(".leaflet-popup-content").html(self.name);
-      $("#name").html(self.name + "<br>");
+      //$("#name").html(self.name + "<br>");
 			console.log(self.name);
-      window.top.location.href = "http://localhost:3000/api/v1/school_sanitation/search?utf8=%E2%9C%93&district="+self.name;
+      window.top.location.href = data_location + self.name;
 		};
 
 		this.set(options.geojsonObject);

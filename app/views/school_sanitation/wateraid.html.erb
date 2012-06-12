@@ -1,0 +1,173 @@
+<script>
+  $(document).ready(function() {
+    $.getJSON('http://localhost:3000/api/v1/school_sanitation/total_number_of_community_school', function(data) {      
+      $('#community-school').html(data);
+			console.log(data);
+    });
+    
+    $.getJSON('http://localhost:3000/api/v1/school_sanitation/total_no_of_schools_with_toilet_facilities', function(data) {      
+      $('#toilet-facilities').html(data);
+      $('#schools-with-toilet-value').html('(' + data + ')');      
+    });
+    
+    $.getJSON('http://localhost:3000/api/v1/school_sanitation/percentage_of_schools_with_toilet_facilities', function(data) {      
+      $('#schools-with-toilet-percent').html(data + '%');
+    });
+
+    $.getJSON('http://localhost:3000/api/v1/school_sanitation/total_no_of_toilets_for_girl_students_with_items_facilities', function(data) {      
+      $('#separate-toilets-for-girls').html('(' + data + ')');
+    });
+    
+    $.getJSON('http://localhost:3000/api/v1/school_sanitation/percentage_of_separate_toilets_for_girls_with_items_facilities', function(data) {      
+      $('#separate-toilets-for-girls-percent').html(data + '%');
+    });
+    
+    $.getJSON('http://localhost:3000/api/v1/school_sanitation/total_students_boys_and_girls', function(data) {      
+      $('#total-students').html(data);
+    });
+    
+    $.getJSON('http://localhost:3000/api/v1/school_sanitation/percentage_of_schools_with_separate_toilets_for_girls', function(data) {      
+      $('#schools-with-separate-toilets-for-girls-percent').html(data + '%');
+    });
+    
+    $.getJSON('http://localhost:3000/api/v1/school_sanitation/total_no_districts', function(data) {      
+      $('#tdistricts').html(data);
+    });
+  });
+</script>
+
+
+<div id="top">
+	<div id="top-inner"></div>
+</div>
+
+<div id="header"><!--header-->
+	<div class="main">
+		
+		<div id="title">
+			<h1><strong>The state of school sanitation in Nepal</strong></h1>
+			<p>The neglected development link.</p>
+		</div>
+		
+		<div id="display-map">
+			Dispaly Map
+		</div>
+
+		<div class="clear"></div>
+	</div>
+</div><!--/header-->
+	
+<div id="nav"><!--nav-->
+	<div class="main">
+		
+		<div id="school">
+			<div id="community-school" class="total"></div>
+			<div class="section">Community School</div>
+		</div>
+		
+		<div id="toilet">
+			<div id="toilet-facilities"class="total"></div>
+			<div class="section">Toilet Facilities</div>
+		</div>
+		
+		<div id="students">
+			<div id="total-students" class="total"></div>
+			<div class="section">Students</div>
+		</div>
+
+		<div class="clear"></div>
+	</div>
+</div><!--/nav-->
+		
+<div id="schools-toilet-top"></div><!--schools toilet-->
+
+<div id="schools-toilet">
+	<div class="main">
+		<div class="page">
+			
+			<div class="left">
+				<h2>No. of Schools with Toilet</h2>
+				<hr>
+				<div class="chart"></div>
+				<div class="text">
+					<div id="schools-with-toilet-percent" class="percent"></div>
+					<div id="schools-with-toilet-value" class="value"></div>
+					<div class="name">Schools with Toilet</div>
+				</div>
+			</div>
+		
+			<div class="right">
+				<div class="image">Toilet</div>
+			</div>
+
+			<div class="clear"></div>
+			<div class="top-button"><a href="#">Top</a></div>
+		</div>
+	</div>
+</div><!--schools toilet-->
+
+<div id="girls-toilet"><!--girls toilet-->
+	<div class="main">
+		<div class="page">
+			
+			<div class="left">
+				<h2>No. of Separate Toilets for Girls</h2>
+				<hr>
+				<div class="chart"></div>
+				<div class="text">
+					<div id="separate-toilets-for-girls-percent" class="percent"></div>
+					<div id="separate-toilets-for-girls" class="value"></div>
+					<div class="name">Separate Toilets for Girls</div>
+				</div>
+			</div>
+			
+			<div class="right">
+				<div class="image">Girls Toilet</div>
+			</div>
+			
+			<div class="clear"></div>
+			<div class="top-button"><a href="#">Top</a></div>
+		</div>
+	</div>
+</div><!--/girls toilet-->
+
+<div id="separate-girls-toilet"><!--separate girls toilet-->
+	<div class="main">
+		<div class="page">
+
+			<div class="left">
+				<h2>No. of Schools with separate Toilets for Girls</h2>
+				<hr>
+				<div class="chart"></div>
+				<div class="text">
+					<div id="schools-with-separate-toilets-for-girls-percent" class="percent"></div>
+					<div class="name">Schools with separate Toilets for Girls</div>
+				</div>
+			</div>
+
+			<div class="right">
+				<div class="image">Separate Girls Toilet</div>
+			</div>
+
+			<div class="clear"></div>
+			<div class="top-button"><a href="#">Top</a></div>
+			<div id="average-top"></div>
+		</div>
+	</div>
+</div><!--/separate girls toilet-->
+
+<!--average-->
+<div id="average">
+	<div class="main">
+		<div class="page">
+			<h3>On Average,</h3>
+			<div id="first-ratio" class="toilet-quantity">1</div>
+			<div class="average-toilet">Toilet</div>
+			<div class="serves">serves</div>
+			<div id="second-ratio" class="students-numbers">127</div>
+			<div class="average-students">Students</div>
+		</div>
+		<div class="clear"></div>
+		<div class="top-button"><a href="#">Top</a></div>
+	</div>
+</div><!--/average-->

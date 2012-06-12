@@ -1,0 +1,409 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+body{
+	background: url("bg.png") #018db0;
+	font-family: "ubuntu";
+}
+
+h1{
+	font-size: 54px; color: #fff;
+	text-align: center;
+}
+
+h2,h3{
+	font-size: 34px;
+	font-weight: bolder;
+	width: 470px;
+}
+
+h2{
+	color: #fff;
+	
+}
+
+h3{
+	color: #8abfcc;
+}
+
+hr{
+	margin-top: 29px;
+	width: 470px;
+}
+
+#wrapper{
+	width: 100%;
+}
+
+.main{
+	margin: 0 auto;
+	width: 960px;
+}
+
+.clear{
+	clear: both;
+}
+
+#top{
+	background: #f2f9fc; /* Old browsers */
+	background: -moz-linear-gradient(top,  #f2f9fc 0%, #acdcea 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f2f9fc), color-stop(100%,#acdcea)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #f2f9fc 0%,#acdcea 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #f2f9fc 0%,#acdcea 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #f2f9fc 0%,#acdcea 100%); /* IE10+ */
+	background: linear-gradient(top,  #f2f9fc 0%,#acdcea 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f9fc', endColorstr='#acdcea',GradientType=0 ); /* IE6-9 */
+	height: 154px;
+}
+
+#top-inner{
+	background: url("top-curve.png") no-repeat;
+	height: 155px;
+	width: 1110px;
+	margin: 0 auto;
+}
+
+.top-button a{
+	background: url("Button.png") no-repeat;
+	float: right;
+	font-size: 14px; color: #fff;
+	font-weight: bolder;
+	padding-top: 30px;
+	position: relative;
+	bottom: 20px;
+	text-align: center;
+	text-transform: uppercase;
+	width: 60px;
+}
+
+.top-button a:hover{
+	text-decoration: none;
+}
+
+/**header**/
+#header{
+	height: 326px;
+}
+
+#header .main{
+	background: url("header-bg.png") no-repeat -12px 1px;
+	height: 326px;
+}
+
+#title{
+	float: left;
+	margin-top: 44px;
+	width: 517px;
+}
+
+#title h1{
+	font-size: 55px; color: #d8f5fc;
+	line-height: 58px;
+	text-align: left;
+}
+
+#title p{
+	background-color: #036178;
+	border-radius: 3px;
+	font-size: 18px; color: #a7bec3;
+	padding: 5px 230px 8px 10px;
+}
+
+#display-map{
+	background: url("display-map.png") no-repeat;
+	float: right;
+	height: 222px;
+	margin-right: 110px;
+	text-indent: -9999px;
+	width: 222px;
+}
+
+/**nav**/
+#nav{
+	height: 179px;
+}
+
+/**--nav-->school**/
+#school{
+	background: url(school.png) no-repeat center #484745;
+	border-radius: 20px;
+	float: left;
+	height: 179px;
+	width: 280px;
+}
+
+#school .total{
+	font-size: 54px; color: #fff;
+	font-weight: bolder;
+	margin-top: 75px;
+	text-align: center;
+}
+
+#school .section{
+	font-size: 14px; color: #fff;
+	font-weight: bolder;
+	text-align: center;
+	text-transform: uppercase;
+	margin-top: 61px;
+}
+
+/**--nav-->toilet**/
+#toilet{
+	background: url("toilet.png") no-repeat 165px 20px #484745;
+	border-radius: 20px;
+	float: left;
+	height: 179px;
+	margin: 0px 60px;
+	width: 280px;
+}
+
+#toilet .total{
+	font-size: 54px; color: #fff;
+	font-weight: bolder;
+	margin: 112px 0 0 26px;
+	text-align: left;
+}
+
+#toilet .section{
+	font-size: 14px; color: #fff;
+	font-weight: bolder;
+	margin: 24px 0 0 26px;
+	text-transform: uppercase;
+}
+
+/**--nav-->students**/
+#students{
+	background: url("students.png") no-repeat center 25px #484745;
+	border-radius: 20px;
+	float: right;
+	height: 179px;
+	width: 280px;
+}
+
+#students .total{
+	font-size: 54px; color: #fff;
+	font-weight: bolder;
+	margin-top: 111px;
+	text-align: center;
+}
+
+#students .section{
+	font-size: 14px; color: #fff;
+	font-weight: bolder;
+	margin-top: 25px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+/**class**/
+.left{
+	float: left;
+	width: 500px;
+}
+
+.right{
+	float: right;
+	width: 432px;
+}
+
+.chart{
+	background-color: #e0e0e0;
+	float: left;
+	height: 200px;
+	width: 200px;
+}
+
+.text{
+	float: left;
+	margin-left: 20px;
+	width: 250px;
+}
+
+img{
+	float: right;
+}
+
+
+/**schools toilet**/
+#schools-toilet-top{
+	background: url("school-toilet-top.png") no-repeat;
+	height: 157px;
+	margin: 0 auto;
+	width: 1110px;
+}
+
+#schools-toilet{
+	background: url("bg.png") #027693;
+	height: 436px;
+}
+
+#schools-toilet .page{
+	padding-top: 28px;
+}
+
+#schools-toilet .percent{
+	font-size: 82px; color: #fff;
+	font-weight: bolder;
+	float: left;
+	margin-top: 60px;
+}
+
+#schools-toilet .value{
+	float: left;
+	font-size: 34px; color: #83bdcb;
+	text-align: left;
+	margin-top: 75px;
+}
+
+#schools-toilet .name{
+	font-size: 18px; color: #fff;
+	font-weight: bolder;
+	margin-top: 110px;
+	text-transform: uppercase;
+}
+
+#schools-toilet .image{
+	background: url("toilet-icon.png") no-repeat right;
+	height: 359px;
+	text-indent: -9999px;
+	width: 432px;
+}
+
+/**girls toilet**/
+#girls-toilet{
+	background: url("bg.png") #03627a;
+	height: 497px;
+}
+
+#girls-toilet .page{
+	padding-top: 83px;
+}
+
+#girls-toilet .percent{
+	font-size: 82px; color: #fff;
+	font-weight: bolder;
+	float: left;
+	margin-top: 60px;
+}
+
+#girls-toilet .value{
+	float: left;
+	font-size: 34px; color: #83bdcb;
+	text-align: left;
+	margin-top: 75px;
+}
+
+#girls-toilet .name{
+	font-size: 18px; color: #fff;
+	font-weight: bolder;
+	margin-top: 110px;
+	text-transform: uppercase;
+}
+
+#girls-toilet .image{
+	background: url("girls-toilet-icon.png") no-repeat right;
+	height: 359px;
+	text-indent: -9999px;
+	width: 432px;
+}
+
+/**separate girls toilet**/
+#separate-girls-toilet{
+	background: url("bg.png") #034d60;
+	height: 530px;
+}
+
+#separate-girls-toilet .page{
+	padding-top: 83px;
+}
+
+#separate-girls-toilet .percent{
+	font-size: 82px; color: #fff;
+	font-weight: bolder;
+	float: left;
+	margin-top: 60px;
+}
+
+#separate-girls-toilet .name{
+	font-size: 18px; color: #fff;
+	font-weight: bolder;
+	margin-top: 110px;
+	text-transform: uppercase;
+}
+
+#separate-girls-toilet .image{
+	background: url("separate-girls-toilet-icon.png") no-repeat right;
+	height: 359px;
+	text-indent: -9999px;
+	width: 432px;
+}
+
+/**on average**/
+#average-top{
+	background: url("average-top.png") no-repeat;
+	top: 10px;
+	height: 78px;
+	margin: 0 auto;
+	position: relative;
+	width: 1110px;
+}
+
+#average{
+	background: url("bg.png") #027693;
+	height: 500px;
+}
+
+#average .page{
+	background: url("average-icon.png") no-repeat center 20px;
+	height: 300px;
+	padding-top: 53px;
+}
+
+#average .toilet-quantity{
+	float: left;
+	font-size: 88px; color: #fff;
+	font-weight: bolder;
+	margin: 96px 0 0 282px;
+	width: 50px;
+}
+
+#average .average-toilet{
+	float: left;
+	font-size: 16px; color: #fff;
+	font-weight: bolder;
+	margin: 143px 0 0 -45px;
+	text-transform: uppercase;
+	width: 100px;
+}
+
+#average .serves{
+	float: left;
+	font-size: 16px; color: #fff;
+	font-weight: bolder;
+	margin: 125px 0 0 62px;
+	width: 100px;
+}
+
+#average .students-numbers{
+	float: right;
+	font-size: 88px; color: #92a32a;
+	font-weight: bolder;
+	margin: 96px 343px 0 0;
+	width: 50px;
+}
+
+#average .average-students{
+	float: right;
+	font-size: 16px; color: #fff;
+	font-weight: bolder;
+	margin: 40px 283px 0 0;
+	text-transform: uppercase;
+	width: 100px;
+}
+
+#average img{
+	float: none;
+	margin: -60px 210px;
+}
