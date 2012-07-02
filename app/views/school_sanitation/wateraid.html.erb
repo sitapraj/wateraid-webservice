@@ -1,21 +1,25 @@
 <script>
+  function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
   $(document).ready(function() {
     $.getJSON('http://localhost:3000/api/v1/school_sanitation/total_number_of_community_school', function(data) {      
-      $('#community-school').html(data);
-			console.log(data);
+      $('#community-school').html(numberWithCommas(data));
+			console.log(numberWithCommas(data));
     });
     
     $.getJSON('http://localhost:3000/api/v1/school_sanitation/total_no_of_schools_with_toilet_facilities', function(data) {      
-      $('#toilet-facilities').html(data);
-      $('#schools-with-toilet-value').html('(' + data + ')');      
+      $('#toilet-facilities').html(numberWithCommas(data));
+      $('#schools-with-toilet-value').html('(' + numberWithCommas(data) + ')');      
     });
     
     $.getJSON('http://localhost:3000/api/v1/school_sanitation/percentage_of_schools_with_toilet_facilities', function(data) {      
       $('#schools-with-toilet-percent').html(data + '%');
     });
-
+    
     $.getJSON('http://localhost:3000/api/v1/school_sanitation/total_no_of_toilets_for_girl_students_with_items_facilities', function(data) {      
-      $('#separate-toilets-for-girls').html('(' + data + ')');
+      $('#separate-toilets-for-girls').html('(' + numberWithCommas(data) + ')');
     });
     
     $.getJSON('http://localhost:3000/api/v1/school_sanitation/percentage_of_separate_toilets_for_girls_with_items_facilities', function(data) {      
@@ -23,7 +27,7 @@
     });
     
     $.getJSON('http://localhost:3000/api/v1/school_sanitation/total_students_boys_and_girls', function(data) {      
-      $('#total-students').html(data);
+      $('#total-students').html(numberWithCommas(data));
     });
     
     $.getJSON('http://localhost:3000/api/v1/school_sanitation/percentage_of_schools_with_separate_toilets_for_girls', function(data) {      
@@ -31,11 +35,27 @@
     });
     
     $.getJSON('http://localhost:3000/api/v1/school_sanitation/total_no_districts', function(data) {      
-      $('#tdistricts').html(data);
+      $('#tdistricts').html(numberWithCommas(data));
     });
   });
 </script>
 
+<script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);      
+      function drawChart() {
+        $.getJSON('http://localhost:3000/api/v1/school_sanitation/percentage_of_schools_with_toilet_facilities', function(data) {              
+          var vdata = google.visualization.arrayToDataTable([
+            ['Toilet', 'Percent'],
+            ['School with Toilet', data],
+            ['School without Toilet', (100-data)]
+          ]);
+          
+          var chart = new google.visualization.PieChart(document.getElementById('chart-schools-with-toilet-percent'));
+          chart.draw(vdata);
+        });
+      }
+</script>
 
 <div id="top">
 	<div id="top-inner"></div>
@@ -49,10 +69,9 @@
 			<p>The neglected development link.</p>
 		</div>
 		
-		<div id="display-map">
-			Dispaly Map
-		</div>
-
+		<div id="display-map">Display Map</div>
+		<div id="overall"><p>Overall</p></div>
+		<div id="goto"><a href="#map"><p>Goto Map</p></a></div>
 		<div class="clear"></div>
 	</div>
 </div><!--/header-->
@@ -66,7 +85,7 @@
 		</div>
 		
 		<div id="toilet">
-			<div id="toilet-facilities"class="total"></div>
+			<div id="toilet-facilities" class="total"></div>
 			<div class="section">Toilet Facilities</div>
 		</div>
 		
@@ -88,7 +107,7 @@
 			<div class="left">
 				<h2>No. of Schools with Toilet</h2>
 				<hr>
-				<div class="chart"></div>
+				<div id="chart-schools-with-toilet-percent" style="width: 300px; height: 200px;"></div>
 				<div class="text">
 					<div id="schools-with-toilet-percent" class="percent"></div>
 					<div id="schools-with-toilet-value" class="value"></div>
@@ -168,6 +187,17 @@
 			<div class="average-students">Students</div>
 		</div>
 		<div class="clear"></div>
-		<div class="top-button"><a href="#">Top</a></div>
+		<div id="map-top"></div>
 	</div>
 </div><!--/average-->
+
+<!--map-->
+<div id="map">
+	<div class="main">
+		<div class="page">
+			<p>*Please click on a district in the map to view its information</p>
+		</div>
+	</div>
+	<div class="clear"></div>
+	</div>
+</div><!--/map-->
