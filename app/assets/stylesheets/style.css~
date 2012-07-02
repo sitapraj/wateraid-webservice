@@ -472,18 +472,6 @@ img{
 #map{
 	background-color: #002934;
 	height: 680px;
-	padding-top: 53px;
-}
-
-#map .page{
-	background: url("map.png") no-repeat;
-	height: 553px;
-}
-
-#map p{
-	float: right;
-	font-size: 16px; color: #5a7f89;
-	margin: 0;
-	position: relative;
-	top: 10px;
+	width: 775;
+	/*padding-top: 53px;*/
 }

@@ -10,8 +10,8 @@
 
 <div id="map" style="height: 450px; width:775px"></div>
 <div id="name" class="district_summary"></div>
-<script>
-	
+
+<script>	
   var data_location = "http://localhost:3000/api/v1/school_sanitation/search?utf8=%E2%9C%93&district=";
 	var NepalMap = function(options) {
 		var self = this, map = null, options = options;
@@ -72,13 +72,13 @@
 		this.set = function(GeoJSONObject) {
 			self.geojsonLayer = new L.GeoJSON();	
 			self.geojsonLayer.on('featureparse', self.parse);
-		    self.geojsonLayer.on('click', self.click);
-		    self.geojsonLayer.on('mouseover', function(e) {
-		    	e.layer.setStyle({fillColor:"red"})
-		    });
-		    self.geojsonLayer.on('mouseout', function(e) {
-		    	e.layer.setStyle({fillColor:"blue"})
-		    });
+			self.geojsonLayer.on('click', self.click);
+			self.geojsonLayer.on('mouseover', function(e) {
+				e.layer.setStyle({fillColor:"red"})
+			});
+			self.geojsonLayer.on('mouseout', function(e) {
+				e.layer.setStyle({fillColor:"blue"})
+			});
 			self.geojsonLayer.addGeoJSON(GeoJSONObject);
 		};
 		
