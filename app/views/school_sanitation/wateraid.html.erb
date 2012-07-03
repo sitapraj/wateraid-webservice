@@ -33,6 +33,26 @@
     $.getJSON('http://localhost:3000/api/v1/school_sanitation/percentage_of_schools_with_separate_toilets_for_girls', function(data) {      
       $('#schools-with-separate-toilets-for-girls-percent').html(data + '%');
     });
+
+		$.getJSON('http://localhost:3000/api/v1/school_sanitation/search?utf8=%E2%9C%93&district=TOTAL', function(data) {
+			var ratio = data.toilet_to_student_ratio;
+			var firstRatio = "";
+			var secondRatio = "";
+			var tempRatio = "";
+			for(var i=0; i<ratio.length; i++) {
+				firstRatio = ratio[0];
+				if(ratio[i] == ":") {
+					continue;
+				}
+				secondRatio = ratio[i];
+			}
+	
+			console.log(firstRatio);
+			console.log(secondRatio);
+			//$('#first-ratio').html(firstRatio);
+			//$('#second-ratio').html(secondRatio);
+    });
+			
   });	
 </script>
 
@@ -212,10 +232,10 @@
 	<div class="main">
 		<div class="page">
 			<h2>On Average,</h2>
-			<div id="first-ratio" class="toilet-quantity">1</div>
+			<div id="first-ratio" class="toilet-quantity"></div>
 			<div class="average-toilet">Toilet</div>
 			<div class="serves">serves</div>
-			<div id="second-ratio" class="students-numbers">127</div>
+			<div id="second-ratio" class="students-numbers"></div>
 			<div class="average-students">Students</div>
 		</div>
 		<div class="clear"></div>
