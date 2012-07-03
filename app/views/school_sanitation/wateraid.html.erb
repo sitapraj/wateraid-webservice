@@ -58,7 +58,7 @@
 				['School without Toilet', (100-data)]
 			]);
       
-			var chart = new google.visualization.PieChart(document.getElementById('chart-schools-with-toilet-percent'));
+			var chart = new google.visualization.PieChart(document.getElementById('chart-schools-with-toilet'));
 			chart.draw(vdata);
 		});
 	}
@@ -84,7 +84,7 @@
 				['Without Separate Toilet', (100-data)]
 			]);
       
-			var chart = new google.visualization.PieChart(document.getElementById('schools-with-separate-toilets-for-girls'));
+			var chart = new google.visualization.PieChart(document.getElementById('chart-schools-with-separate-toilets-for-girls'));
 			chart.draw(vdata);
 		});
 	}
@@ -140,12 +140,14 @@
 			<div class="left">
 				<h2>No. of Schools with Toilet</h2>
 				<hr>
-				<div id="chart-schools-with-toilet-percent" style="width: 450px; height: 300px;"></div>
-				<div class="text">
-					<div id="schools-with-toilet-percent" class="percent"></div>
-					<div id="schools-with-toilet-value" class="value"></div>
-					<div class="name">Schools with Toilet</div>
-				</div>
+				<div id="chart-schools-with-toilet"></div>
+			</div>
+			
+			<div class="text">
+				<div id="schools-with-toilet-percent" class="percent"></div>
+				<div id="schools-with-toilet-value" class="value"></div>
+				<div class="clear"></div>
+				<div class="name">Schools with Toilet</div>
 			</div>
 		
 			<div class="right">
@@ -165,12 +167,14 @@
 			<div class="left">
 				<h2>No. of Separate Toilets for Girls</h2>
 				<hr>
-				<div id="chart-separate-toilets-for-girls" style="width: 450px; height: 300px;"></div>
-				<div class="text">
-					<div id="separate-toilets-for-girls-percent" class="percent"></div>
-					<div id="separate-toilets-for-girls" class="value"></div>
-					<div class="name">Separate Toilets for Girls</div>
-				</div>
+				<div id="chart-separate-toilets-for-girls"></div>
+			</div>
+			
+			<div class="text">
+				<div id="separate-toilets-for-girls-percent" class="percent"></div>
+				<div id="separate-toilets-for-girls" class="value"></div>
+				<div class="clear"></div>
+				<div class="name">Separate Toilets for Girls</div>
 			</div>
 			
 			<div class="right">
@@ -178,7 +182,6 @@
 			</div>
 			
 			<div class="clear"></div>
-			<div class="top-button"><a href="#">Top</a></div>
 		</div>
 	</div>
 </div><!--/girls toilet-->
@@ -190,11 +193,12 @@
 			<div class="left">
 				<h2>No. of Schools with separate Toilets for Girls</h2>
 				<hr>
-				<div id="schools-with-separate-toilets-for-girls" style="width: 450px; height: 300px;"></div>
-				<div class="text">
-					<div id="schools-with-separate-toilets-for-girls-percent" class="percent"></div>
-					<div class="name">Schools with separate Toilets for Girls</div>
-				</div>
+				<div id="chart-schools-with-separate-toilets-for-girls"></div>
+			</div>
+
+			<div class="text">
+				<div id="schools-with-separate-toilets-for-girls-percent" class="percent"></div>
+				<div class="name" class="clear">Schools with separate Toilets for Girls</div>
 			</div>
 
 			<div class="right">
@@ -202,7 +206,6 @@
 			</div>
 
 			<div class="clear"></div>
-			<div class="top-button"><a href="#">Top</a></div>
 			<div id="average-top"></div>
 		</div>
 	</div>
@@ -212,7 +215,7 @@
 <div id="average">
 	<div class="main">
 		<div class="page">
-			<h3>On Average,</h3>
+			<h2>On Average,</h2>
 			<div id="first-ratio" class="toilet-quantity">1</div>
 			<div class="average-toilet">Toilet</div>
 			<div class="serves">serves</div>
@@ -220,8 +223,8 @@
 			<div class="average-students">Students</div>
 		</div>
 		<div class="clear"></div>
-		<div id="map-top"></div>
 	</div>
+	<div id="map-top"></div>
 </div><!--/average-->
 
 <!--map-->

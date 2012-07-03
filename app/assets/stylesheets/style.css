@@ -1,4 +1,4 @@
-f*{
+*{
 	margin: 0px;
 	padding: 0px;
 }
@@ -160,7 +160,7 @@ hr{
 
 /**--nav-->school**/
 #school{
-	background: url(school.png) no-repeat center #484745;
+	background: url("school.png") no-repeat center #484745;
 	border-radius: 20px;
 	float: left;
 	height: 179px;
@@ -184,7 +184,7 @@ hr{
 
 /**--nav-->toilet**/
 #toilet{
-	background: url(toilet.png) no-repeat 165px 20px #484745;
+	background: url("toilet.png") no-repeat 165px 20px #484745;
 	border-radius: 20px;
 	float: left;
 	height: 179px;
@@ -208,7 +208,7 @@ hr{
 
 /**--nav-->students**/
 #students{
-	background: url(students.png) no-repeat center 25px #484745;
+	background: url("students.png") no-repeat center 25px #484745;
 	border-radius: 20px;
 	float: right;
 	height: 179px;
@@ -241,10 +241,10 @@ hr{
 	width: 432px;
 }
 
-.text{
-	float: left;
-	margin-left: 20px;
-	width: 250px;
+.name{
+	font-size: 16px; color: #fff;
+	font-weight: bolder;
+	text-transform: uppercase;
 }
 
 img{
@@ -262,7 +262,7 @@ img{
 
 #schools-toilet{
 	background: url("bg.png") #027693;
-	height: 436px;
+	height: 456px;
 }
 
 #schools-toilet .page{
@@ -272,29 +272,30 @@ img{
 #chart-schools-with-toilet{
 	background-color: #e0e0e0;
 	float: left;
-	height: 200px;
-	width: 200px;
+	height: 300px;
+	width: 470px;
+}
+
+#schools-toilet .text{
+	left: 720px;
+	margin-top: 304px;
+	position: absolute;
+	width: 230px;
 }
 
 #schools-toilet .percent{
 	float: left;
-	font-size: 82px; color: #fff;
+	font-size: 60px; color: #fff;
 	font-weight: bolder;
-	margin-top: 60px;
+	line-height: 66px;
 }
 
 #schools-toilet .value{
 	float: left;
-	font-size: 34px; color: #83bdcb;
-	margin-top: 75px;
+	font-size: 24px; color: #83bdcb;
+	line-height: 30px;
+	margin-top: 30px;
 	text-align: left;
-}
-
-#schools-toilet .name{
-	font-size: 18px; color: #fff;
-	font-weight: bolder;
-	margin-top: 110px;
-	text-transform: uppercase;
 }
 
 #schools-toilet .image{
@@ -307,39 +308,40 @@ img{
 /**girls toilet**/
 #girls-toilet{
 	background: url("bg.png") #03627a;
-	height: 496px;
+	height: 516px;
 }
 
 #girls-toilet .page{
-	padding-top: 82px;
+	padding-top: 50px;
 }
 
 #chart-separate-toilets-for-girls{
 	background-color: #e0e0e0;
 	float: left;
-	height: 200px;
-	width: 200px;
+	height: 300px;
+	width: 470px;
+}
+
+#girls-toilet .text{
+	left: 720px;
+	margin-top: 341px;
+	position: absolute;
+	width: 230px;
 }
 
 #girls-toilet .percent{
 	float: left;
-	font-size: 82px; color: #fff;
+	font-size: 60px; color: #fff;
 	font-weight: bolder;
-	margin-top: 60px;
+	line-height: 66px;
 }
 
 #girls-toilet .value{
 	float: left;
-	font-size: 34px; color: #83bdcb;
-	margin-top: 75px;
+	font-size: 24px; color: #83bdcb;
+	line-height: 30px;
+	margin-top: 30px;
 	text-align: left;
-}
-
-#girls-toilet .name{
-	font-size: 18px; color: #fff;
-	font-weight: bolder;
-	margin-top: 110px;
-	text-transform: uppercase;
 }
 
 #girls-toilet .image{
@@ -352,32 +354,31 @@ img{
 /**separate girls toilet**/
 #separate-girls-toilet{
 	background: url("bg.png") #034d60;
-	height: 552px;
+	height: 584px;
 }
 
 #separate-girls-toilet .page{
-	padding-top: 82px;
+	padding-top: 50px;
 }
 
 #chart-schools-with-separate-toilets-for-girls{
 	background-color: #e0e0e0;
 	float: left;
-	height: 200px;
-	width: 200px;
+	height: 300px;
+	width: 470px;
+}
+
+#separate-girls-toilet .text{
+	left: 720px;
+	margin-top: 323px;
+	position: absolute;
+	width: 230px;
 }
 
 #separate-girls-toilet .percent{
-	float: left;
-	font-size: 82px; color: #fff;
+	font-size: 60px; color: #fff;
 	font-weight: bolder;
-	margin-top: 60px;
-}
-
-#separate-girls-toilet .name{
-	font-size: 18px; color: #fff;
-	font-weight: bolder;
-	margin-top: 110px;
-	text-transform: uppercase;
+	line-height: 66px;
 }
 
 #separate-girls-toilet .image{
@@ -472,6 +473,18 @@ img{
 #map{
 	background-color: #002934;
 	height: 680px;
-	width: 775;
 	padding-top: 53px;
+}
+
+#map .page{
+	background: url("map.png") no-repeat;
+	height: 553px;
+}
+
+#map p{
+	float: right;
+	font-size: 16px; color: #5a7f89;
+	margin: 0;
+	position: relative;
+	top: 10px;
 }
