@@ -3,37 +3,22 @@
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 	
-  $(document).ready(function() {
-    $.getJSON('http://localhost:3000/api/v1/school_sanitation/total_number_of_community_school', function(data) {      
-      $('#community-school').html(numberWithCommas(data));
-			console.log(numberWithCommas(data));
+	var url = "http://localhost:3000/api/v1/school_sanitation/search?utf8=%E2%9C%93&district=<%= @district.districts %>"; 	
+
+	$(document).ready(function() {
+    $.getJSON(url, function(data) {      
+      $('#community-school').html(numberWithCommas(data.total_no_of_community_schools));
+			$('#toilet-facilities').html(numberWithCommas(data.total_no_of_schools_with_toilet_facilities));
+			$('#schools-with-toilet-value').html('(' + numberWithCommas(data.total_no_of_schools_with_toilet_facilities) + ')');
+			$('#schools-with-toilet-percent').html(data.percentage_of_schools_with_toilet_facilities + '%');
+			$('#separate-toilets-for-girls').html('(' + numberWithCommas(data.total_no_of_toilets_for_girl_students_with_items_facilities) + ')');
+			$('#separate-toilets-for-girls-percent').html(data.percentage_of_separate_toilets_for_girls_with_items_facilities + '%');
+			$('#total-students').html(numberWithCommas(data.total_students_boys_and_girls));
+			$('#schools-with-separate-toilets-for-girls-percent').html(data.percentage_of_schools_with_separate_toilets_for_girls + '%');
+			console.log(data);
     });
-    
-    $.getJSON('http://localhost:3000/api/v1/school_sanitation/total_no_of_schools_with_toilet_facilities', function(data) {      
-      $('#toilet-facilities').html(numberWithCommas(data));
-      $('#schools-with-toilet-value').html('(' + numberWithCommas(data) + ')');      
-    });
-    
-    $.getJSON('http://localhost:3000/api/v1/school_sanitation/percentage_of_schools_with_toilet_facilities', function(data) {      
-      $('#schools-with-toilet-percent').html(data + '%');
-    });
-    
-    $.getJSON('http://localhost:3000/api/v1/school_sanitation/total_no_of_toilets_for_girl_students_with_items_facilities', function(data) {      
-      $('#separate-toilets-for-girls').html('(' + numberWithCommas(data) + ')');
-    });
-    
-    $.getJSON('http://localhost:3000/api/v1/school_sanitation/percentage_of_separate_toilets_for_girls_with_items_facilities', function(data) {      
-      $('#separate-toilets-for-girls-percent').html(data + '%');
-    });
-    
-    $.getJSON('http://localhost:3000/api/v1/school_sanitation/total_students_boys_and_girls', function(data) {      
-      $('#total-students').html(numberWithCommas(data));
-    });
-    
-    $.getJSON('http://localhost:3000/api/v1/school_sanitation/percentage_of_schools_with_separate_toilets_for_girls', function(data) {      
-      $('#schools-with-separate-toilets-for-girls-percent').html(data + '%');
-    });
-  });	
+  });
+
 </script>
 
 <script type="text/javascript">
@@ -47,11 +32,11 @@
 		}
 	
 		function drawToiletFacilitiesChart() {
-			$.getJSON('http://localhost:3000/api/v1/school_sanitation/percentage_of_schools_with_toilet_facilities', function(data) {
+			$.getJSON(url, function(data) {
 				var vdata = google.visualization.arrayToDataTable([
 					['Toilet', 'Percent'],
-					['School with Toilet', data],
-					['School without Toilet', (100-data)]
+					['School with Toilet', data.percentage_of_schools_with_toilet_facilities],
+					['School without Toilet', (100-data.percentage_of_schools_with_toilet_facilities)]
 				]);
 		    
 				var chart = new google.visualization.PieChart(document.getElementById('chart-schools-with-toilet'));
@@ -60,11 +45,11 @@
 		}
 	
 	 	function drawToiletForGirlsChart() {
-			$.getJSON('http://localhost:3000/api/v1/school_sanitation/percentage_of_separate_toilets_for_girls_with_items_facilities', function(data) {
+			$.getJSON(url, function(data) {
 				var vdata = google.visualization.arrayToDataTable([
 					['Toilet For Girls', 'Percent'],
-					['School Toilet for Girls', data],
-					['School without Toilet for Girls', (100-data)]
+					['School Toilet for Girls', data.percentage_of_separate_toilets_for_girls_with_items_facilities],
+					['School without Toilet for Girls', (100-data.percentage_of_separate_toilets_for_girls_with_items_facilities)]
 				]);
 		    
 				var chart = new google.visualization.PieChart(document.getElementById('chart-separate-toilets-for-girls'));
@@ -73,11 +58,11 @@
 		}
 
 		function drawSeparateToiletForGirlsChart() {
-			$.getJSON('http://localhost:3000/api/v1/school_sanitation/percentage_of_schools_with_separate_toilets_for_girls', function(data) {
+			$.getJSON(url, function(data) {
 				var vdata = google.visualization.arrayToDataTable([
 					['Toilet', 'Percent'],
-					['Separate Toilet', data],
-					['Without Separate Toilet', (100-data)]
+					['Separate Toilet', data.percentage_of_schools_with_separate_toilets_for_girls],
+					['Without Separate Toilet', (100-data.percentage_of_schools_with_separate_toilets_for_girls)]
 				]);
 		    
 				var chart = new google.visualization.PieChart(document.getElementById('chart-schools-with-separate-toilets-for-girls'));
@@ -99,7 +84,13 @@
 		</div>
 		
 		<div id="display-map">Display Map</div>
-		<div id="overall"><p><%= link_to "Overall", school_sanitation_wateraid_path %></p></div>
+		<div id="overall">
+			<p>
+				<% if !@district.districts.nil? %>
+				<%= link_to @district.districts, school_sanitation_wateraid_path %>
+				<% end %>
+			</p>
+		</div>
 		<div id="goto"><a href="#map"><p>Goto Map</p></a></div>
 		<div class="clear"></div>
 	</div>

@@ -56,5 +56,15 @@ class SchoolSanitationController < ApplicationController
   def wateraid
     render :wateraid
   end
+
+	def wateraid_with_district
+		@district = DistrictGirlSanitationCommunitySchool.where(:districts => params[:district].upcase).first
+
+		if(@district.nil? || @district == "")
+			redirect_to school_sanitation_wateraid_path
+		else		
+			render :wateraid_with_district
+		end
+	end
   
 end
