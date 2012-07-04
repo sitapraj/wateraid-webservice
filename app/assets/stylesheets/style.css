@@ -108,15 +108,20 @@ hr{
 	padding: 5px 230px 8px 10px;
 }
 
-#overall{
-	background: url("goto.png") no-repeat 156px 15px #00cdff;
+#overall a{
+	background: url("goto.png") no-repeat 180px 15px #00cdff;
 	border-radius: 5px;
 	float: left;
 	font-size: 16px; color: #fff;
 	font-weight: bolder;
 	margin-top: 30px;
 	padding: 11px 0px 11px 10px;
-	width: 175px;
+	width: 195px;
+}
+
+#overall a:hover{
+	background-color: #14a5c8;
+	text-decoration: none;
 }
 
 .district-menu{
@@ -124,7 +129,7 @@ hr{
 	border-radius: 5px;
 	height: 375px;
 	position: absolute;
-	top: 438px;
+	top: 436px;
 	width: 960px;
 }
 
@@ -143,15 +148,23 @@ hr{
 	width: 15%;
 }
 
+.district-menu a{
+	color: #fff;
+}
+
+.district-menu a:hover{
+	text-decoration: underline;
+}
+
 #goto a{
-	background: url("goto.png") no-repeat 110px 15px #92a32a;
+	background: url("goto.png") no-repeat 96px 15px #92a32a;
 	border-radius: 5px;
 	float: left;
 	font-size: 16px; color: #fff;
 	font-weight: bolder;
 	margin: 30px 0 0 15px;
-	padding: 11px 0px 11px 10px;
-	width: 129px;
+	padding: 11px 0px 3px 10px;
+	width: 110px;
 }
 
 #goto a:hover{
@@ -199,7 +212,7 @@ hr{
 
 /**--nav-->school**/
 #school{
-	background: url("school.png") no-repeat center #484745;
+	background: url(school.png) no-repeat center #484745;
 	border-radius: 20px;
 	float: left;
 	height: 179px;
@@ -225,7 +238,7 @@ hr{
 
 /**--nav-->toilet**/
 #toilet{
-	background: url("toilet.png") no-repeat 165px 20px #484745;
+	background: url(toilet.png) no-repeat 165px 20px #484745;
 	border-radius: 20px;
 	float: left;
 	height: 179px;
@@ -251,7 +264,7 @@ hr{
 
 /**--nav-->students**/
 #students{
-	background: url("students.png") no-repeat center 25px #484745;
+	background: url(students.png) no-repeat center 25px #484745;
 	border-radius: 20px;
 	float: right;
 	height: 179px;
