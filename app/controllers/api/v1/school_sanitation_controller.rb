@@ -48,7 +48,7 @@ module Api
       end
       
       def total_no_districts
-        respond_with DistrictGirlSanitationCommunitySchool.count()
+        respond_with DistrictGirlSanitationCommunitySchool.count() - 1
       end
 
 		end
