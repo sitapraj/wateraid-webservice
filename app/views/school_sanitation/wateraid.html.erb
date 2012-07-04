@@ -35,24 +35,15 @@
     });
 
 		$.getJSON('http://localhost:3000/api/v1/school_sanitation/search?utf8=%E2%9C%93&district=TOTAL', function(data) {
-			var ratio = data.toilet_to_student_ratio;
-			var firstRatio = "";
-			var secondRatio = "";
-			var tempRatio = "";
-			for(var i=0; i<ratio.length; i++) {
-				firstRatio = ratio[0];
-				if(ratio[i] == ":") {
-					continue;
-				}
-				secondRatio = ratio[i];
-			}
-	
-			console.log(firstRatio);
-			console.log(secondRatio);
-			//$('#first-ratio').html(firstRatio);
-			//$('#second-ratio').html(secondRatio);
+			var ratio = data.toilet_to_student_ratio;		
+			var firstRatio = divideFirstRatio(ratio);
+			var secondRatio = divideSecondRatio(ratio);
+
+    	console.log(firstRatio);
+    	console.log(secondRatio);
+			$('#first-ratio').html(firstRatio);
+			$('#second-ratio').html(secondRatio);
     });
-			
   });	
 </script>
 

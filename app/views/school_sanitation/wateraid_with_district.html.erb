@@ -16,9 +16,17 @@
 			$('#total-students').html(numberWithCommas(data.total_students_boys_and_girls));
 			$('#schools-with-separate-toilets-for-girls-percent').html(data.percentage_of_schools_with_separate_toilets_for_girls + '%');
 			console.log(data);
+			
+			var ratio = data.toilet_to_student_ratio;		
+			var firstRatio = divideFirstRatio(ratio);
+			var secondRatio = divideSecondRatio(ratio);
+
+    	console.log(firstRatio);
+    	console.log(secondRatio);
+			$('#first-ratio').html(firstRatio);
+			$('#second-ratio').html(secondRatio);
     });
   });
-
 </script>
 
 <script type="text/javascript">
@@ -203,10 +211,10 @@
 	<div class="main">
 		<div class="page">
 			<h2>On Average,</h2>
-			<div id="first-ratio" class="toilet-quantity">1</div>
+			<div id="first-ratio" class="toilet-quantity"></div>
 			<div class="average-toilet">Toilet</div>
 			<div class="serves">serves</div>
-			<div id="second-ratio" class="students-numbers">127</div>
+			<div id="second-ratio" class="students-numbers"></div>
 			<div class="average-students">Students</div>
 		</div>
 		<div class="clear"></div>

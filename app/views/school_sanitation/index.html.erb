@@ -1,4 +1,5 @@
 <%= image_tag("opendata.png", :alt => "open data") %>
+
 <h1>The State of School Sanitation in Nepal</h1>
 <h4><i>The neglected development link</i></h4>
 <h2>District-Wise(Girl) Students' Access to Sanitation in Community Schools</h2>
@@ -10,12 +11,14 @@
 	</p>
 <% end %>
 
-<%= render :template => 'nepalmap/index'%>
-
 <p id="notice"><%= notice %></p>
-<%= link_to "Water Aid Infographics", school_sanitation_wateraid_path %> ||
 
-<%= link_to "Download JSON file", school_sanitation_index_path('json') %> ||
-<%= link_to "Download XML file", school_sanitation_index_path('xml') %> ||
-<%= link_to "Download CSV file", school_sanitation_export_to_csv_path %>
+<div id="overall">
+	<p>	
+		<%= link_to "Water Aid Infographics", school_sanitation_wateraid_path %>
+		<%= link_to "Download JSON file", school_sanitation_index_path('json') %>
+		<%= link_to "Download XML file", school_sanitation_index_path('xml') %>
+		<%= link_to "Download CSV file", school_sanitation_export_to_csv_path %>
+	</p>
+</div>
 
