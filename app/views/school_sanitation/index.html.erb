@@ -4,16 +4,22 @@
 <h4><i>The neglected development link</i></h4>
 <h2>District-Wise(Girl) Students' Access to Sanitation in Community Schools</h2>
 
-<%= form_tag api_v1_school_sanitation_search_path, :method => :get do %>
+<form action="">
 	<p>
-	  <%= text_field_tag :district, params[:district], :class => 'search' %>
-	  <%= submit_tag "Search", :name => nil, :class => 'submit'%>
+		<%= select_tag "district", options_from_collection_for_select(DistrictGirlSanitationCommunitySchool.all.map, :districts, :districts) %>
 	</p>
-<% end %>
+</form>
+
+<script>
+	$('select').change(function() {
+		window.top.location.href = 'http://localhost:3000/school_sanitation/wateraid_with_district?utf8=✓&district=' + $(this).attr('value');
+	});
+</script>
 
 <p id="notice"><%= notice %></p>
 
 <div id="overall">
+	<h3>Open Data</h3>
 	<p>	
 		<%= link_to "Water Aid Infographics", school_sanitation_wateraid_path %>
 		<%= link_to "Download JSON file", school_sanitation_index_path('json') %>
@@ -42,6 +48,8 @@
 		<%= link_to "Total Students", api_v1_school_sanitation_total_students_boys_and_girls_path %><br/><br/>
 
 		<%= link_to "Total Number of Districts", api_v1_school_sanitation_total_no_districts_path %><br/><br/>
+
+		<%= link_to "List of Districts", api_v1_school_sanitation_list_of_districts_path %><br/><br/>
 	</p>
 </div>
 

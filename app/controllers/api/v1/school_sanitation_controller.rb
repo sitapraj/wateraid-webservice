@@ -51,6 +51,13 @@ module Api
         respond_with DistrictGirlSanitationCommunitySchool.count() - 1
       end
 
+			def list_of_districts
+				@districts = Array.new				
+				DistrictGirlSanitationCommunitySchool.each do |sanitation|
+  				@districts.push p sanitation.districts
+				end
+				respond_with @districts
+			end
 		end
   end
 end

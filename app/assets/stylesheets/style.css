@@ -109,28 +109,48 @@ hr{
 }
 
 #overall{
-	background: url("overall.png") no-repeat center bottom;
-	clear: both;
+	background: url("goto.png") no-repeat 156px 15px #00cdff;
+	border-radius: 5px;
 	float: left;
+	font-size: 16px; color: #fff;
+	font-weight: bolder;
 	margin-top: 30px;
-	text-align: center;
+	padding: 11px 0px 11px 10px;
 	width: 175px;
 }
 
-#overall p{
-	background-color: #00cdff;
-	border-radius: 10px;
-	font-size: 16px; color: #fff;
-	font-weight: bolder;
-	padding: 10px 0;
+.district-menu{
+	background-color: #14a5c8;
+	border-radius: 5px;
+	height: 375px;
+	position: absolute;
+	top: 438px;
+	width: 960px;
+}
+
+#menu-title{
+	color: #036178;
+	font-size: 22px;
+	margin: 20px;
+	line-height: 28px;
+}
+
+.district-menu ul li{
+	color: #fff;
+	float: left;
+	margin-left: 10px;
+	line-height: 22px;
+	width: 15%;
 }
 
 #goto a{
 	background: url("goto.png") no-repeat 110px 15px #92a32a;
 	border-radius: 5px;
 	float: left;
-	margin: 30px 0 0 30px;
-	padding: 11px 0px 2px 10px;
+	font-size: 16px; color: #fff;
+	font-weight: bolder;
+	margin: 30px 0 0 15px;
+	padding: 11px 0px 11px 10px;
 	width: 129px;
 }
 
@@ -139,9 +159,28 @@ hr{
 	text-decoration: none;
 }
 
-#goto p{
-	font-size: 16px; color: #fff;
-	font-weight: bolder;
+#rank{
+	background: #484745;
+	border-radius: 5px;
+	float: left;
+	margin-left: 15px;
+	height: 99px;
+	width: 163px;
+}
+
+#district-numbers{
+	color: #fff;
+	font-size: 60px;
+	line-height: 66px;
+	margin-top: 1px;
+	text-align: center;
+}
+
+.district-rank{
+	color: #fff;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
 }
 
 #display-map{
@@ -170,14 +209,16 @@ hr{
 #school .total{
 	font-size: 54px; color: #fff;
 	font-weight: bolder;
-	margin-top: 75px;
+	line-height: 60px;
+	margin-top: 51px;
 	text-align: center;
 }
 
 #school .section{
 	font-size: 14px; color: #fff;
 	font-weight: bolder;
-	margin-top: 61px;
+	line-height: 20px;
+	margin-top: 42px;
 	text-align: center;
 	text-transform: uppercase;
 }
@@ -195,14 +236,16 @@ hr{
 #toilet .total{
 	font-size: 54px; color: #fff;
 	font-weight: bolder;
-	margin: 112px 0 0 26px;
+	line-height: 60px;
+	margin: 93px 0 0 26px;
 	text-align: left;
 }
 
 #toilet .section{
 	font-size: 14px; color: #fff;
 	font-weight: bolder;
-	margin: 24px 0 0 26px;
+	line-height: 20px;
+	margin-left: 26px;
 	text-transform: uppercase;
 }
 
@@ -218,14 +261,14 @@ hr{
 #students .total{
 	font-size: 54px; color: #fff;
 	font-weight: bolder;
-	margin-top: 111px;
+	line-height: 60px;
+	margin-top: 95px;
 	text-align: center;
 }
 
 #students .section{
 	font-size: 14px; color: #fff;
 	font-weight: bolder;
-	margin-top: 25px;
 	text-align: center;
 	text-transform: uppercase;
 }
@@ -394,7 +437,7 @@ img{
 	height: 78px;
 	margin: 0 auto;
 	position: relative;
-	top: 34px;
+	top: 35px;
 	width: 1110px;
 }
 
@@ -417,7 +460,8 @@ img{
 	float: left;
 	font-size: 88px; color: #fff;
 	font-weight: bolder;
-	margin: 96px 0 0 282px;
+	line-height: 94px;
+	margin: 58px 0 0 282px;
 	width: 50px;
 }
 
@@ -442,7 +486,8 @@ img{
 	float: right;
 	font-size: 88px; color: #92a32a;
 	font-weight: bolder;
-	margin: 96px 343px 0 0;
+	line-height: 94px;
+	margin: 48px 343px 0 0;
 	width: 50px;
 }
 
@@ -450,7 +495,7 @@ img{
 	float: right;
 	font-size: 16px; color: #fff;
 	font-weight: bolder;
-	margin: 40px 283px 0 0;
+	margin-right: 283px;
 	text-transform: uppercase;
 	width: 100px;
 }

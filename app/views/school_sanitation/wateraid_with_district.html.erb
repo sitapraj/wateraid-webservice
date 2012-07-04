@@ -2,7 +2,7 @@
   function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
-	
+		
 	var url = "http://localhost:3000/api/v1/school_sanitation/search?utf8=%E2%9C%93&district=<%= @district.districts %>"; 	
 
 	$(document).ready(function() {
@@ -25,7 +25,42 @@
     	console.log(secondRatio);
 			$('#first-ratio').html(firstRatio);
 			$('#second-ratio').html(secondRatio);
+
+			$('#district-numbers').html('#' + data.districts_ranked_by_girl_students_access_to_school_sanitation);
+			console.log(data.districts_ranked_by_girl_students_access_to_school_sanitation);
     });
+
+		$('select').change(function() {
+			window.top.location.href = 'http://localhost:3000/school_sanitation/wateraid_with_district?utf8=✓&district=' + $(this).attr('value');
+		});
+
+		$('.district-menu').hide();
+		$('#overall').hover(
+			function() {
+				$(".district-menu").hover(
+					function() {
+						$('.district-menu').stop().slideDown(100);
+					},
+					function() {
+						$('.district-menu').slideUp(100);					
+					}
+				);
+				$('.district-menu').stop().slideDown(100);
+			},
+			function() {
+				$('.district-menu').slideUp(100);
+			}
+		);
+		
+		$.ajax({
+  		url: 'http://localhost:3000/api/v1/school_sanitation/list_of_districts',
+  		success: function(data) {
+    		for(var d=0; d<data.length; d++) {					
+					$("#ul-district-lists").append('<li><a href="http://localhost:3000/school_sanitation/wateraid_with_district?district='+ data[d] + '">' + data[d] + '</a></li>');	
+				}
+  		}
+		});	
+		
   });
 </script>
 
@@ -93,13 +128,25 @@
 		
 		<div id="display-map">Display Map</div>
 		<div id="overall">
-			<p>
-				<% if !@district.districts.nil? %>
-				<%= link_to @district.districts, school_sanitation_wateraid_path %>
-				<% end %>
-			</p>
+			<% if @district.districts %>
+				<a href="http://localhost:3000/school_sanitation/wateraid_with_district?district=<%= @district.districts %>"><%= @district.districts %></a>				
+			<% else %>
+				<%= link_to "Overall", school_sanitation_wateraid_path %>
+			<% end %>
 		</div>
+		
+		<div class="district-menu">
+			<div id="menu-title">Select a District from the list below</div>
+			<ul id="ul-district-lists"></ul>
+		</div>
+
 		<div id="goto"><a href="#map"><p>Goto Map</p></a></div>
+
+		<div id="rank">
+			<div id="district-numbers"></div>
+			<div class="district-rank">District Rank</div>
+		</div>
+
 		<div class="clear"></div>
 	</div>
 </div><!--/header-->

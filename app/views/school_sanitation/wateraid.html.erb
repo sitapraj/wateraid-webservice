@@ -1,4 +1,4 @@
-<script>
+<script type="text/javascript">
   function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
@@ -34,7 +34,7 @@
       $('#schools-with-separate-toilets-for-girls-percent').html(data + '%');
     });
 
-		$.getJSON('http://localhost:3000/api/v1/school_sanitation/search?utf8=%E2%9C%93&district=TOTAL', function(data) {
+		$.getJSON('http://localhost:3000/api/v1/school_sanitation/search?utf8=%E2%9C%93&district=OVERALL', function(data) {
 			var ratio = data.toilet_to_student_ratio;		
 			var firstRatio = divideFirstRatio(ratio);
 			var secondRatio = divideSecondRatio(ratio);
@@ -44,6 +44,37 @@
 			$('#first-ratio').html(firstRatio);
 			$('#second-ratio').html(secondRatio);
     });
+
+		$('select').change(function() {
+			window.top.location.href = 'http://localhost:3000/school_sanitation/wateraid_with_district?utf8=✓&district=' + $(this).attr('value');
+		});
+
+		$('.district-menu').hide();
+		$('#overall').hover(
+			function() {
+				$(".district-menu").hover(
+					function() {
+						$('.district-menu').stop().slideDown(100);
+					},
+					function() {
+						$('.district-menu').slideUp(100);					
+					}
+				);
+				$('.district-menu').stop().slideDown(100);
+			},
+			function() {
+				$('.district-menu').slideUp(100);
+			}
+		);
+		
+		$.ajax({
+  		url: 'http://localhost:3000/api/v1/school_sanitation/list_of_districts',
+  		success: function(data) {    		
+    		for(var d=0; d<data.length; d++) {
+						$("#ul-district-lists").append('<li><a href="http://localhost:3000/school_sanitation/wateraid_with_district?district='+ data[d] + '">' + data[d] + '</a></li>');
+				}
+  		}
+		});	
   });	
 </script>
 
@@ -94,7 +125,7 @@
 				var chart = new google.visualization.PieChart(document.getElementById('chart-schools-with-separate-toilets-for-girls'));
 				chart.draw(vdata);
 			});
-		}
+		}		
 </script>
 
 <div id="top">
@@ -110,7 +141,16 @@
 		</div>
 		
 		<div id="display-map">Display Map</div>
-		<div id="overall"><p><%= link_to "Overall", school_sanitation_wateraid_path %></p></div>
+		
+		<div id="overall">
+			<%= link_to "Overall", school_sanitation_wateraid_path %>
+		</div>
+
+		<div class="district-menu">
+			<div id="menu-title">Select a District from the list below</div>
+			<ul id="ul-district-lists"></ul>
+		</div>
+
 		<div id="goto"><a href="#map"><p>Goto Map</p></a></div>
 		<div class="clear"></div>
 	</div>
