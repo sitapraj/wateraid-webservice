@@ -16,7 +16,7 @@ module Api
       end
       
       def total_no_of_schools_with_toilet_facilities
-        respond_with DistrictGirlSanitationCommunitySchool.sum(:total_no_of_schools_with_toilet_facilities)
+        respond_with DistrictGirlSanitationCommunitySchool.sum(:total_no_of_schools_with_toilet_facilities).to_i
       end
       
       def percentage_of_schools_with_toilet_facilities
@@ -24,11 +24,11 @@ module Api
       end
       
       def total_no_of_toilet_facilities_inclusive_of_each_toilet_item
-        respond_with DistrictGirlSanitationCommunitySchool.sum(:total_no_of_toilet_facilities_inclusive_of_each_toilet_item)
+        respond_with DistrictGirlSanitationCommunitySchool.sum(:total_no_of_toilet_facilities_inclusive_of_each_toilet_item).to_i
       end
       
       def total_no_of_toilets_for_girl_students_with_items_facilities
-        respond_with DistrictGirlSanitationCommunitySchool.sum(:total_no_of_toilets_for_girl_students_with_items_facilities)
+        respond_with DistrictGirlSanitationCommunitySchool.sum(:total_no_of_toilets_for_girl_students_with_items_facilities).to_i
       end
       
       def percentage_of_separate_toilets_for_girls_with_items_facilities
@@ -40,7 +40,7 @@ module Api
       end
       
       def total_students_boys_and_girls
-        respond_with DistrictGirlSanitationCommunitySchool.sum(:total_students_boys_and_girls)
+        respond_with DistrictGirlSanitationCommunitySchool.sum(:total_students_boys_and_girls).to_i
       end
       
       def percentage_of_schools_with_separate_toilets_for_girls
