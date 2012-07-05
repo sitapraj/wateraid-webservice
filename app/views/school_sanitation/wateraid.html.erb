@@ -50,19 +50,23 @@
 		});
 
 		$('.district-menu').hide();
-		$('#overall').hover(
+		$('#overall').hover(			
 			function() {
+				$('#overall a').css("background-color", "#14a5c8");
 				$(".district-menu").hover(
 					function() {
-						$('.district-menu').stop().slideDown(100);
+						$('#overall a').css("background-color", "#14a5c8");						
+						$('.district-menu').stop().slideDown(100);						
 					},
-					function() {
+					function() {	
+						$('#overall a').css("background-color", "#00cdff");					
 						$('.district-menu').slideUp(100);					
 					}
-				);
+				);				
 				$('.district-menu').stop().slideDown(100);
 			},
 			function() {
+				$('#overall a').css("background-color", "#00cdff");
 				$('.district-menu').slideUp(100);
 			}
 		);
