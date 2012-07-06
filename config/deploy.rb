@@ -1,4 +1,4 @@
-set :application, "192.168.1.1"
+set :application, "yiplserver"
 set :repository,  "git@192.168.1.1:wateraid-webservice.git"
 
 set :scm, :git
@@ -8,9 +8,9 @@ set :user, 'surajt'
 set :use_sudo, true
 set :deploy_to, "/home/surajt/public_html/#{application}"
 
-role :web, "192.168.1.1"                          # Your HTTP server, Apache/etc
-role :app, "192.168.1.1"                          # This may be the same as your `Web` server
-role :db,  "192.168.1.1", :primary => true # This is where Rails migrations will run
+role :web, "yiplserver"                          # Your HTTP server, Apache/etc
+role :app, "yiplserver"                          # This may be the same as your `Web` server
+role :db,  "yiplserver", :primary => true # This is where Rails migrations will run
 
 # if you want to clean up old releases on each deploy uncomment this:
 # after "deploy:restart", "deploy:cleanup"
