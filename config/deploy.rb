@@ -7,7 +7,6 @@ set :scm, :git
 set :user, 'surajt'
 set :use_sudo, true
 set :deploy_to, "/home/surajt/public_html/#{application}"
-set :deploy_via, :remote_cache
 
 role :web, "192.168.1.1"                          # Your HTTP server, Apache/etc
 role :app, "192.168.1.1"                          # This may be the same as your `Web` server
