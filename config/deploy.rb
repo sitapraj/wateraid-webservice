@@ -9,7 +9,7 @@ set :deploy_via, :remote_cache
 set :use_sudo, false
 
 set :scm, :git
-set :repository,  "git@192.168.1.1:#{application}.git"
+set :repository,  "git@devyipl:#{application}.git"
 set :branch, "master"
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
