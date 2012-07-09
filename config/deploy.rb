@@ -1,33 +1,33 @@
-set :application, "localserver.yipl.com.np"
-set :repository,  "git@192.168.1.1:wateraid-webservice.git"
+require "bundler/capistrano"
+
+server "192.168.1.1", :web, :app, :db, primary:true
+
+set :application, "wateraid-webservice"
+set :user, "surajt"
+set :deploy_to, "/home/#{user}/public_html/#{application}"
+set :deploy_via, :remote_cache
+set :use_sudo, false
 
 set :scm, :git
+set :repository,  "git@192.168.1.1:#{application}.git"
+set :branch, "master"
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
-set :user, 'surajt'
-set :use_sudo, true
-set :deploy_to, "/home/surajt/public_html/#{application}"
+default_run_options[:pty] = true
 
-role :web, "localserver.yipl.com.np"                          # Your HTTP server, Apache/etc
-role :app, "localserver.yipl.com.np"                          # This may be the same as your `Web` server
-role :db,  "localserver.yipl.com.np", :primary => true # This is where Rails migrations will run
-
-# if you want to clean up old releases on each deploy uncomment this:
-# after "deploy:restart", "deploy:cleanup"
-after "deploy", "deploy:bundle_gems"
-after "deploy:bundle_gems", "deploy:restart"
+after "deploy", "deploy:clean"
 
 # if you're still using the script/reaper helper you will need
 # these http://github.com/rails/irs_process_scripts
 
 # If you are using Passenger mod_rails uncomment this:
- namespace :deploy do
-	 task :bundle_gems do
-   	run "cd #{deploy_to}/current && bundle install vender/gems"
-	 end
-   task :start do ; end
-   task :stop do ; end
-   task :restart, :roles => :app, :except => { :no_release => true } do
-     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
-   end
- end
+namespace :deploy do	
+	task :restart, roles: :app do
+		run "touch #{current_path}/tmp/restart.txt"	
+	end
+
+	task :symlink_config, roles: :app do
+		run "ln -nfs #{shared_path}/config/mongoid.yml #{release_path}/config/mongoid.yml"
+	end
+	after "deploy:finalize_update", "deploy:symlink_config"	
+end
