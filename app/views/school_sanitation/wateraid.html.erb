@@ -1,8 +1,4 @@
 <script type="text/javascript">
-  function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
-	
   $(document).ready(function() {
     $.getJSON('http://localhost:3000/api/v1/school_sanitation/total_number_of_community_school', function(data) {      
       $('#community-school').html(numberWithCommas(data));

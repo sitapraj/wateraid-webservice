@@ -1,8 +1,4 @@
-<script>
-  function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
-		
+<script type="text/javascript">
 	var url = "http://localhost:3000/api/v1/school_sanitation/search?utf8=%E2%9C%93&district=<%= @district.districts %>"; 	
 
 	$(document).ready(function() {
