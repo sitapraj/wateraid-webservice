@@ -3,7 +3,7 @@ require 'rvm/capistrano'
 
 $:.unshift(File.expand_path("/home/prashant/.rvm/lib"))
 set :rvm_ruby_string, '1.9.3p194'
-set :rvm_type, :user
+set :rvm_type, :system
 
 server "192.168.1.1", :web, :app, :db, primary:true
 
