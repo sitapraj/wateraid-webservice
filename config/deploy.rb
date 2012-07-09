@@ -8,8 +8,8 @@ set :rvm_type, :system
 server "192.168.1.1", :web, :app, :db, primary:true
 
 set :application, "wateraid-webservice"
-set :user, "root"
-set :deploy_to, "/home/#{user}/ruby_html/#{application}"
+set :user, "dev"
+set :deploy_to, "/home/#{user}/www/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
 
