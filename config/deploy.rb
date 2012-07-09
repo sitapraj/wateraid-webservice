@@ -1,14 +1,13 @@
 require "bundler/capistrano"
 require 'rvm/capistrano'
 
-$:.unshift(File.expand_path("~/.rvm/lib"))
 set :rvm_ruby_string, '1.9.3p194'
 set :rvm_type, :user
 
 server "192.168.1.1", :web, :app, :db, primary:true
 
 set :application, "wateraid-webservice"
-set :user, "prashant"
+set :user, "root"
 set :deploy_to, "/home/#{user}/ruby_html/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
