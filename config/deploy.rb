@@ -14,6 +14,7 @@ set :branch, "master"
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
 default_run_options[:pty] = true
+ssh_options[:forward_agent] = true
 
 after "deploy", "deploy:clean"
 
