@@ -135,7 +135,7 @@ DEPENDENCIES
   capistrano
   coffee-rails (~> 3.2.1)
   jquery-rails
-  mongoid (~> 3.0.0.rc)
+  mongoid (~> 3.0.0)
   rails (= 3.2.6)
   sass-rails (~> 3.2.3)
   therubyracer
