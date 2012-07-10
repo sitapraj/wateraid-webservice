@@ -74,8 +74,40 @@
 						$("#ul-district-lists").append('<li><a href="/school_sanitation/wateraid_with_district?district='+ data[d] + '">' + data[d] + '</a></li>');
 				}
   		}
-		});	
-  });	
+		});
+		
+		$(function() {
+				$.fn.scrollBottom = function() {
+				    return $(document).height() - this.scrollTop() - this.height();
+				};
+
+				var $el = $('.top-button>div');
+				var $window = $(window);
+
+				$window.bind("scroll resize", function() {
+				    var gap = $window.height() - $el.height() - 10;
+				    var visibleFoot = 172 - $window.scrollBottom();
+				    var scrollTop = $window.scrollTop()
+				    
+				    if(scrollTop < 172 + 10){
+				        $el.css({
+				            top: (172 - scrollTop) + "px",
+				            bottom: "auto"
+				        });
+				    }else if (visibleFoot > gap) {
+				        $el.css({
+				            top: "auto",
+				            bottom: visibleFoot + "px"
+				        });
+				    } else {
+				        $el.css({
+				            top: 0,
+				            bottom: "auto"
+				        });
+				    }
+				});
+		});
+	});
 </script>
 
 <script type="text/javascript">
@@ -127,6 +159,8 @@
 			});
 		}		
 </script>
+
+<div id=stuff>
 
 <div id="top">
 	<div id="top-inner"></div>
@@ -273,7 +307,7 @@
 	</div>
 	<div id="map-top"></div>
 </div><!--/average-->
-
+</div><!-- end of stuff -->
 <!--map-->
 <div id="map">
 	<%= render :template => 'nepalmap/index'%>
