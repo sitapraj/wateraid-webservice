@@ -2,9 +2,9 @@ require 'csv'
 
 class SchoolSanitationController < ApplicationController
   
-  def index
-    @districts = DistrictGirlSanitationCommunitySchool.all
-    
+  def index    
+    @districts = DistrictGirlSanitationCommunitySchool.all.to_a.slice(0..74)
+
     respond_to do |format|
       format.html 
       format.xml { render :xml => @districts }
@@ -13,7 +13,7 @@ class SchoolSanitationController < ApplicationController
   end
     
   def export_to_csv
-    @districts = DistrictGirlSanitationCommunitySchool.all
+    @districts = DistrictGirlSanitationCommunitySchool.all.to_a.slice(0..74)
     
     csv_string = CSV.generate do |csv|
       # header row
