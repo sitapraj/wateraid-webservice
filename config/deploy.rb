@@ -27,7 +27,11 @@ after "deploy", "deploy:clean"
 # these http://github.com/rails/irs_process_scripts
 
 # If you are using Passenger mod_rails uncomment this:
-namespace :deploy do	
+namespace :deploy do
+	task :start, roles: :app do
+		run "gem install passenger"
+		run "passenger start -e production -d --user root"	
+	end	
 	task :restart, roles: :app do
 		run "touch #{current_path}/tmp/restart.txt"	
 	end
