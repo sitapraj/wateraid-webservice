@@ -1,3 +1,551 @@
 // Place all the styles related to the school_sanitation controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+body{
+	background: url("bg.png") #018db0;
+	font-family: "ubuntu";
+}
+
+h1{
+	font-size: 54px; color: #fff;
+	text-align: center;
+}
+
+h2{
+	font-size: 34px; color: #fff;
+	font-weight: bolder;
+}
+
+hr{
+	margin-top: 29px;
+	width: 470px;
+}
+
+#wrapper{
+	width: 100%;
+}
+
+.main{
+	margin: 0 auto;
+	width: 960px;
+}
+
+.clear{
+	clear: both;
+}
+
+#top{
+	background: #f2f9fc; /* Old browsers */
+	background: -moz-linear-gradient(top,  #f2f9fc 0%, #acdcea 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f2f9fc), color-stop(100%,#acdcea)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #f2f9fc 0%,#acdcea 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #f2f9fc 0%,#acdcea 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #f2f9fc 0%,#acdcea 100%); /* IE10+ */
+	background: linear-gradient(top,  #f2f9fc 0%,#acdcea 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f9fc', endColorstr='#acdcea',GradientType=0 ); /* IE6-9 */
+	height: 154px;
+}
+
+#top-inner{
+	background: url("top-curve.png") no-repeat;
+	height: 155px;
+	margin: 0 auto;
+	width: 1110px;
+}
+
+.top-button a{
+	background: url("button.png") no-repeat;
+	bottom: 20px;
+	font-size: 14px; color: #fff;
+	font-weight: bolder;
+	opacity: 0.5;
+	-moz-opacity: 0.5;
+	filter:alpha(opacity=5);
+	padding-top: 30px;
+	position: fixed;
+	right: 10%;
+	text-align: center;
+	text-transform: uppercase;
+	width: 60px;
+	z-index: 1;
+}
+
+.top-button a:hover{
+	opacity: 1;
+	-moz-opacity: 1;
+	filter:alpha(opacity=1);
+	text-decoration: none;
+}
+
+/**header**/
+#header{
+	height: 326px;
+}
+
+#header .main{
+	background: url("header-bg.png") no-repeat -12px 1px;
+	height: 326px;
+}
+
+#title{
+	float: left;
+	margin-top: 44px;
+	width: 517px;
+}
+
+#title h1{
+	font-size: 55px; color: #d8f5fc;
+	line-height: 58px;
+	text-align: left;
+}
+
+#title p{
+	background-color: #036178;
+	border-radius: 3px;
+	font-size: 18px; color: #a7bec3;
+	padding: 5px 230px 8px 10px;
+}
+
+#overall a{
+	background: url("goto.png") no-repeat 180px 15px #00cdff;
+	border-radius: 5px;
+	float: left;
+	font-size: 16px; color: #fff;
+	font-weight: bolder;
+	margin-top: 30px;
+	padding: 11px 0px 11px 10px;
+	width: 195px;
+}
+
+#overall a:hover{
+	background-color: #14a5c8;
+	text-decoration: none;
+}
+
+.district-menu{
+	background-color: #14a5c8;
+	border-radius: 5px;
+	height: 375px;
+	position: absolute;
+	top: 436px;
+	width: 960px;
+}
+
+#menu-title{
+	color: #036178;
+	font-size: 22px;
+	margin: 20px;
+	line-height: 28px;
+}
+
+.district-menu ul li{
+	color: #fff;
+	float: left;
+	margin-left: 10px;
+	line-height: 22px;
+	width: 15%;
+}
+
+.district-menu a{
+	color: #fff;
+}
+
+.district-menu a:hover{
+	text-decoration: underline;
+}
+
+#goto a{
+	background: url("goto.png") no-repeat 96px 15px #92a32a;
+	border-radius: 5px;
+	float: left;
+	font-size: 16px; color: #fff;
+	font-weight: bolder;
+	margin: 30px 0 0 15px;
+	padding: 11px 0px 3px 10px;
+	width: 110px;
+}
+
+#goto a:hover{
+	background-color: #728114;
+	text-decoration: none;
+}
+
+#rank{
+	background: #484745;
+	border-radius: 5px;
+	float: left;
+	margin-left: 15px;
+	height: 99px;
+	width: 163px;
+}
+
+#district-numbers{
+	color: #fff;
+	font-size: 60px;
+	line-height: 66px;
+	margin-top: 1px;
+	text-align: center;
+}
+
+.district-rank{
+	color: #fff;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+}
+
+#display-map{
+	background: url("display-map.png") no-repeat;
+	float: right;
+	height: 222px;
+	margin-right: 110px;
+	text-indent: -9999px;
+	width: 222px;
+}
+
+/**nav**/
+#nav{
+	height: 179px;
+}
+
+/**--nav-->school**/
+#school{
+	background: url(school.png) no-repeat center #484745;
+	border-radius: 20px;
+	float: left;
+	height: 179px;
+	width: 280px;
+}
+
+#school .total{
+	font-size: 54px; color: #fff;
+	font-weight: bolder;
+	line-height: 60px;
+	margin-top: 51px;
+	text-align: center;
+}
+
+#school .section{
+	font-size: 14px; color: #fff;
+	font-weight: bolder;
+	line-height: 20px;
+	margin-top: 42px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+/**--nav-->toilet**/
+#toilet{
+	background: url(toilet.png) no-repeat 165px 20px #484745;
+	border-radius: 20px;
+	float: left;
+	height: 179px;
+	margin: 0px 60px;
+	width: 280px;
+}
+
+#toilet .total{
+	font-size: 54px; color: #fff;
+	font-weight: bolder;
+	line-height: 60px;
+	margin: 93px 0 0 26px;
+	text-align: left;
+}
+
+#toilet .section{
+	font-size: 14px; color: #fff;
+	font-weight: bolder;
+	line-height: 20px;
+	margin-left: 26px;
+	text-transform: uppercase;
+}
+
+/**--nav-->students**/
+#students{
+	background: url(students.png) no-repeat center 25px #484745;
+	border-radius: 20px;
+	float: right;
+	height: 179px;
+	width: 280px;
+}
+
+#students .total{
+	font-size: 54px; color: #fff;
+	font-weight: bolder;
+	line-height: 60px;
+	margin-top: 95px;
+	text-align: center;
+}
+
+#students .section{
+	font-size: 14px; color: #fff;
+	font-weight: bolder;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+/**class**/
+.left{
+	float: left;
+	width: 500px;
+}
+
+.right{
+	float: right;
+	width: 432px;
+}
+
+.name{
+	font-size: 16px; color: #fff;
+	font-weight: bolder;
+	text-transform: uppercase;
+}
+
+img{
+	float: right;
+}
+
+
+/**schools toilet**/
+#schools-toilet-top{
+	background: url("school-toilet-top.png") no-repeat;
+	height: 157px;
+	margin: 0 auto;
+	width: 1110px;
+}
+
+#schools-toilet{
+	background: url("bg.png") #027693;
+	height: 456px;
+}
+
+#schools-toilet .page{
+	padding-top: 28px;
+}
+
+#chart-schools-with-toilet{
+	background-color: #e0e0e0;
+	float: left;
+	height: 300px;
+	width: 470px;
+}
+
+#schools-toilet .text{
+	left: 720px;
+	margin-top: 304px;
+	position: absolute;
+	width: 230px;
+}
+
+#schools-toilet .percent{
+	float: left;
+	font-size: 60px; color: #fff;
+	font-weight: bolder;
+	line-height: 66px;
+}
+
+#schools-toilet .value{
+	float: left;
+	font-size: 24px; color: #83bdcb;
+	line-height: 30px;
+	margin-top: 30px;
+	text-align: left;
+}
+
+#schools-toilet .image{
+	background: url("toilet-icon.png") no-repeat right;
+	height: 359px;
+	text-indent: -9999px;
+	width: 432px;
+}
+
+/**girls toilet**/
+#girls-toilet{
+	background: url("bg.png") #03627a;
+	height: 516px;
+}
+
+#girls-toilet .page{
+	padding-top: 50px;
+}
+
+#chart-separate-toilets-for-girls{
+	background-color: #e0e0e0;
+	float: left;
+	height: 300px;
+	width: 470px;
+}
+
+#girls-toilet .text{
+	left: 720px;
+	margin-top: 341px;
+	position: absolute;
+	width: 230px;
+}
+
+#girls-toilet .percent{
+	float: left;
+	font-size: 60px; color: #fff;
+	font-weight: bolder;
+	line-height: 66px;
+}
+
+#girls-toilet .value{
+	float: left;
+	font-size: 24px; color: #83bdcb;
+	line-height: 30px;
+	margin-top: 30px;
+	text-align: left;
+}
+
+#girls-toilet .image{
+	background: url("girls-toilet-icon.png") no-repeat right;
+	height: 359px;
+	text-indent: -9999px;
+	width: 432px;
+}
+
+/**separate girls toilet**/
+#separate-girls-toilet{
+	background: url("bg.png") #034d60;
+	height: 584px;
+}
+
+#separate-girls-toilet .page{
+	padding-top: 50px;
+}
+
+#chart-schools-with-separate-toilets-for-girls{
+	background-color: #e0e0e0;
+	float: left;
+	height: 300px;
+	width: 470px;
+}
+
+#separate-girls-toilet .text{
+	left: 720px;
+	margin-top: 323px;
+	position: absolute;
+	width: 230px;
+}
+
+#separate-girls-toilet .percent{
+	font-size: 60px; color: #fff;
+	font-weight: bolder;
+	line-height: 66px;
+}
+
+#separate-girls-toilet .image{
+	background: url("separate-girls-toilet-icon.png") no-repeat right;
+	height: 359px;
+	text-indent: -9999px;
+	width: 432px;
+}
+
+/**on average**/
+#average-top{
+	background: url("average-top.png") no-repeat;
+	height: 78px;
+	margin: 0 auto;
+	position: relative;
+	top: 35px;
+	width: 1110px;
+}
+
+#average{
+	background: url("bg.png") #027693;
+	height: 432px;
+}
+
+#average .page{
+	background: url("average-icon.png") no-repeat center 20px;
+	height: 300px;
+	padding-top: 53px;
+}
+
+#average h2{
+	color: #8abfcc;
+}
+
+#average .toilet-quantity{
+	float: left;
+	font-size: 88px; color: #fff;
+	font-weight: bolder;
+	line-height: 94px;
+	margin: 58px 0 0 282px;
+	width: 50px;
+}
+
+#average .average-toilet{
+	float: left;
+	font-size: 16px; color: #fff;
+	font-weight: bolder;
+	margin: 143px 0 0 -45px;
+	text-transform: uppercase;
+	width: 100px;
+}
+
+#average .serves{
+	float: left;
+	font-size: 16px; color: #fff;
+	font-weight: bolder;
+	margin: 125px 0 0 62px;
+	width: 100px;
+}
+
+#average .students-numbers{
+	float: right;
+	font-size: 88px; color: #92a32a;
+	font-weight: bolder;
+	line-height: 94px;
+	margin: 48px 343px 0 0;
+	width: 50px;
+}
+
+#average .average-students{
+	float: right;
+	font-size: 16px; color: #fff;
+	font-weight: bolder;
+	margin-right: 283px;
+	text-transform: uppercase;
+	width: 100px;
+}
+
+#average img{
+	float: none;
+	margin: -60px 210px;
+}
+
+/**map**/
+#map-top{
+	background: url("map-top.png") no-repeat;
+	height: 28px;
+	margin: 0 auto;
+	position: relative;
+	top: 55px;
+	width: 960px;
+}
+
+#map{
+	background-color: #002934;
+	height: 680px;
+	padding-top: 53px;
+}
+
+#map .page{
+	background: url("map.png") no-repeat;
+	height: 553px;
+}
+
+#map p{
+	float: right;
+	font-size: 16px; color: #5a7f89;
+	margin: 0;
+	position: relative;
+	top: 10px;
+}

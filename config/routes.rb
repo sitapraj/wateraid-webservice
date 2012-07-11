@@ -1,5 +1,6 @@
 WateraidWebservice::Application.routes.draw do
   
+	# API ROUTES
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
       get 'school_sanitation/index'
@@ -19,11 +20,15 @@ WateraidWebservice::Application.routes.draw do
     end
   end
   
+	# Water Sanitation APPs Routes
   get 'school_sanitation/export_to_csv'
   get 'school_sanitation/search'
   get 'school_sanitation/wateraid'
 	get 'school_sanitation/wateraid_with_district'
   resources :school_sanitation
   
+	# Open Data Routes
+	get 'open_data/apps'
+
   root :to => 'open_data#index'
 end
