@@ -30,7 +30,7 @@
       $('#schools-with-separate-toilets-for-girls-percent').html(data + '%');
     });
 
-		$.getJSON('/api/v1/school_sanitation/search?utf8=%E2%9C%93&district=OVERALL', function(data) {
+		$.getJSON('/api/v1/school_sanitation/search?utf8=✓&district==OVERALL', function(data) {
 			var ratio = data.toilet_to_student_ratio;		
 			var firstRatio = divideFirstRatio(ratio);
 			var secondRatio = divideSecondRatio(ratio);
@@ -71,7 +71,7 @@
   		url: '/api/v1/school_sanitation/list_of_districts',
   		success: function(data) {    		
     		for(var d=0; d<data.length; d++) {
-						$("#ul-district-lists").append('<li><a href="/school_sanitation/wateraid_with_district?district='+ data[d] + '">' + data[d] + '</a></li>');
+						$("#ul-district-lists").append('<li><a href="/school_sanitation/wateraid_with_district?utf8=✓&district='+ data[d] + '">' + data[d] + '</a></li>');
 				}
   		}
 		});

@@ -1,5 +1,5 @@
 <script type="text/javascript">
-	var url = "/api/v1/school_sanitation/search?utf8=%E2%9C%93&district=<%= @district.districts %>"; 	
+	var url = "/api/v1/school_sanitation/search?utf8=✓&district=<%= @district.districts %>"; 	
 
 	$(document).ready(function() {
     $.getJSON(url, function(data) {      
@@ -56,7 +56,7 @@
   		url: '/api/v1/school_sanitation/list_of_districts',
   		success: function(data) {
     		for(var d=0; d<data.length; d++) {					
-					$("#ul-district-lists").append('<li><a href="/school_sanitation/wateraid_with_district?district='+ data[d] + '">' + data[d] + '</a></li>');	
+					$("#ul-district-lists").append('<li><a href="/school_sanitation/wateraid_with_district?utf8=✓&district='+ data[d] + '">' + data[d] + '</a></li>');	
 				}
   		}
 		});	
@@ -131,7 +131,7 @@
 			<div id="display-map">Display Map</div>
 			<div id="overall">
 				<% if @district.districts %>
-					<a href="/school_sanitation/wateraid_with_district?district=<%= @district.districts %>"><%= @district.districts %></a>				
+					<a href="/school_sanitation/wateraid_with_district?utf8=✓&district=<%= @district.districts %>"><%= @district.districts %></a>				
 				<% else %>
 					<%= link_to "Overall", school_sanitation_wateraid_path %>
 				<% end %>
