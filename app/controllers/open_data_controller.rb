@@ -21,13 +21,7 @@ class OpenDataController < ApplicationController
 	end
 	
 	def datasets
-		@districts = DistrictGirlSanitationCommunitySchool.all.to_a.slice(0..74)
-
-    respond_to do |format|
-      format.html 
-      format.xml { render :xml => @districts }
-      format.json { render :json =>  @districts }      
-    end
+		
 	end
     
   def export_to_csv

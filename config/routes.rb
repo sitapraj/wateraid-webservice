@@ -29,6 +29,7 @@ WateraidWebservice::Application.routes.draw do
   
 	# Open Data Routes
 	get 'open_data/apps'
+	get 'open_data/datasets'
 
   root :to => 'open_data#index'
 end

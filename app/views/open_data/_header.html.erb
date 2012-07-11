@@ -8,17 +8,19 @@
 		</ul>
 	</div><!--/Menu-->
 
-	<!--<a id="logo" href="index.html">-->
-		<%= link_to image_tag("logo.png", :alt => "Logo", :title => "Home"), root_path, :id=>"logo" %>
-	<!--</a>-->
+	<%= link_to image_tag("logo.png", :alt => "Logo", :title => "Home"), root_path, :id=>"logo" %>
 
 	<div id="nav"><!--Navigation-->
 		<ul>
-			<li><a href="#">Datasets</a></li>
-			<li><%= link_to "Apps", open_data_apps_path %></li>
-			<!--<li><a href="apps.html">Apps</a></li>-->
-			<li><a href="#">Sectors</a></li>
-			
+			<li id="open-data-datasets">
+				<%= link_to "Datasets", open_data_datasets_path %>
+			</li>			
+			<li id="open-data-apps">
+				<%= link_to "Apps", open_data_apps_path %>
+			</li>
+			<li id="open-data-sectors">
+				<a href="#">Sectors</a>
+			</li>
 		</ul>
 	</div><!--/Navigation-->
 	

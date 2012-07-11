@@ -256,6 +256,29 @@ ul.bullets li{
 	text-shadow: 2px 2px 0 #fff;
 }
 
+/**Tags**/
+#tags{
+	background: url("tag-shadow.png") no-repeat bottom center;
+	border-top: 1px solid #bcbcbc;
+	margin-top: 50px;
+	padding: 10px 0 28px 0;
+	text-align: center;
+}
+
+#tags ul li{
+	display: inline
+}
+
+#tags ul li a{
+	color: #cd4c15;
+	padding: 15px;
+	text-decoration: none;
+}
+
+#tags ul li a:hover{
+	text-decoration: underline;
+}
+
 /**Footer**/
 #footer{
 	border-top: 1px solid #bcbcbc;
@@ -286,6 +309,57 @@ ul.bullets li{
 	text-decoration: underline;
 }
 
+/**--------------------Datasets-------------------------**/
+/**Container**/
+#container{
+	margin-top: 70px;
+}
+
+#dataset-content{
+	float: left;
+	line-height: 22px;
+	width: 504px;
+}
+
+/**Data Information**/
+#data-info{
+	background-color: #e9e9e9;
+	border: 1px solid #bcbcbc;
+	box-shadow: inset 0 0 0 1px #fff;
+	float: right;
+	width: 390px;
+}
+
+table.data{
+	font-size: 14px;
+	line-height: 20px;
+	margin: 0 20px;
+}
+
+tr.line{
+	border-bottom: 1px solid #bcbcbc;
+	box-shadow: 0 1px 0 #fff;
+}
+
+th{
+	font-weight: bold;
+	padding: 15px 0;
+	text-align: left;
+	width: 100px;
+}
+
+td{
+	padding: 15px 20px;
+}
+
+td a{
+	color: #0992d7;
+	text-decoration: none;
+}
+
+td a:hover{
+	text-decoration: underline;
+}
 
 /**--------------------APPS-------------------------**/
 /**Container**/
@@ -294,6 +368,12 @@ ul.bullets li{
 }
 
 #apps-content{
+	float: left;
+	line-height: 22px;
+	width: 504px;
+}
+
+#apps-content p{
 	font-size: 14px;
 	float: left;
 	line-height: 22px;
@@ -303,10 +383,16 @@ ul.bullets li{
 
 #version{
 	background-color: #e9e9e9;
+	float: left;
 	font-size: 14px;
 	margin: 15px 0;
 	padding: 5px 0 5px 15px;
 	width: 490px;
+}
+
+#update{
+	float: right;
+	padding-right: 15px;
 }
 
 #img{
@@ -314,56 +400,4 @@ ul.bullets li{
 	float: right;
 	height: 217px;
 	width: 380px;
-}
-
-/**Tags**/
-#tags{
-	background: url("tag-shadow.png") no-repeat bottom center;
-	border-top: 1px solid #bcbcbc;
-	margin-top: 50px;
-	padding: 10px 0 28px 0;
-}
-
-#tags ul li{
-	display: inline
-}
-
-#tags ul li a{
-	color: #cd4c15;
-	padding: 15px;
-	text-decoration: none;
-}
-
-#tags ul li a:hover{
-	text-decoration: underline;
-}
-
-/**Data Information**/
-table.data{
-	font-size: 14px;
-	border-collapse: collapse;
-	margin: 10px 30px;
-	width: 875px;
-}
-
-tr{
-	border-bottom: 1px solid #bcbcbc;
-	box-shadow: 0 1px 0 #fff;
-}
-
-th{
-	font-weight: bold;
-	padding: 15px 0;
-	text-align: left;
-}
-
-td{
-	padding-left: 80px;
-}
-
-#data-info{
-	background-color: #e9e9e9;
-	border: 1px solid #bcbcbc;
-	box-shadow: inset 0 0 0 1px #fff;
-	margin-top: 46px;
 }
