@@ -2,6 +2,8 @@ require 'csv'
 
 class SchoolSanitationController < ApplicationController
   
+	layout 'application'
+
   def index    
     @districts = DistrictGirlSanitationCommunitySchool.all.to_a.slice(0..74)
 
