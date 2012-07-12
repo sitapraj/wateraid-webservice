@@ -61,8 +61,8 @@ module Api
 
 			def list_of_districts_all
 				@districts = Array.new
-				DistrictGirlSanitationCommunitySchool.each do |sanitation|					  				
-					@districts.push p sanitation.districts
+				DistrictGirlSanitationCommunitySchool.each do |district|
+					@districts.push p district.districts
 				end
 				respond_with @districts.slice(0..74)
 			end
