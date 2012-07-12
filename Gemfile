@@ -4,7 +4,12 @@ gem 'rails', '3.2.6'
 
 gem 'mongoid', '~> 3.0.0'
 
-gem 'therubyracer'
+gem 'jquery-rails'
+
+# gem 'unicorn'
+gem 'thin'
+
+gem 'capistrano'
 
 gem 'rvm-capistrano'
 
@@ -16,20 +21,6 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-gem 'thin'
-
-# Deploy with Capistrano
-gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'
+group :production do
+  gem 'therubyracer'	
+end
