@@ -1,0 +1,88 @@
+<%= render :partial => 'header' %>
+
+<div id="container"><!--Container-->
+	<div id="dataset-content">
+		<h1>The State of School Sanitation in Nepal</h1>
+		
+		<div id="related-apps"><!--Related Apps-->
+			<h2>Related Apps:</h2>
+			<%= link_to "", school_sanitation_wateraid_path, :id => "apps1", :class => "app-box"%>
+			<div id="apps2" class="app-box"></div>
+			<div id="apps3" class="app-box"></div>
+			<div class="clear"></div>
+		</div><!--/Related Apps-->
+	</div>
+
+	<div id="data-info"><!--Data Information-->
+		<table class="data">
+			<tr class="line">
+				<th>Data Source</th>
+				<td><a href="http://www.wateraid.org/nepal">www.wateraid.org/nepal</a></td>
+			</tr>
+			
+			<tr class="line">
+				<th>Publisher</th>
+				<td>WaterAid</td>
+			</tr>
+			
+			<tr class="line">
+				<th>Sectors</th>
+				<td>Water & Sanitation</td>
+			</tr>
+
+			<tr>
+				<th>Downloads</th>
+				<td>
+					<ul>
+						<li>
+								<%= link_to image_tag("json.png", :alt => "JSON", :title => "JSON"), open_data_infographics_path('json') %>
+						</li>
+						<li>
+							<%= link_to image_tag("xml.png", :alt => "XML", :title => "XML"), 
+open_data_infographics_path('xml') %>
+						</li>
+						<li>
+							<%= link_to image_tag("csv.png", :alt => "CSV", :title => "CSV"), open_data_export_to_csv_path %>
+						</li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+	</div><!--/Data Information-->
+	
+	<div class="clear"></div>
+</div><!--/Container-->
+    
+<div id="share"><!--Share-->
+	<p><strong>Share</strong></p>
+	<ul>
+		<li>
+			<%= link_to image_tag("facebook.png", :alt => "Facebook", :title => "Facebook") %>
+		</li>
+		<li>
+			<%= link_to image_tag("google-plus.png"), :alt => "Google+", :title => "Google+" %>
+		</li>
+		<li>
+				<%= link_to image_tag("twitter.png", :alt => "Twitter", :title => "Twitter") %>
+		</li>
+	</ul>
+</div><!--/Share-->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+	/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+	// required: replace example with your forum shortname
+	var disqus_shortname = 'yipl'; 
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+      var dsq = document.createElement('script'); 
+			dsq.type = 'text/javascript'; 
+			dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<%= render :partial => 'footer' %>

@@ -1,33 +1,31 @@
 <%= render :partial => 'header' %>
 
 <div id="container"><!--Container-->
-	<div id="dataset-content">
-		<h1>The State of School Sanitation in Nepal</h1>
+	<div id="school-sanitation">
+		<h1>
+			<%= link_to "The State of School Sanitation in Nepal", open_data_infographics_path %>
+		</h1>
 	</div>
-	
-	<div id="data-info"><!--Data Information-->
-		<table class="data">
-			<tr class="line">
-				<th>Data Source</th>
-				<td><a href="http://www.wateraid.org/nepal">www.wateraid.org/nepal</a></td>
-			</tr>
-			
-			<tr class="line">
-				<th>Publisher</th>
-				<td>WaterAid</td>
-			</tr>
-			
-			<tr>
-				<th>Sectors</th>
-				<td>Water & Sanitation</td>
-			</tr>
-		</table>
-	</div><!--/Data Information-->
+
+	<div id="view"><!--Views-->
+		<p><strong>Views:</strong> 50</p>
+	</div><!--/Views-->
+
+	<div id="container"><!--Container-->
+	<div id="school-sanitation">
+		<h1>Agriculture</h1>
+	</div>
+
+	<div id="view"><!--Views-->
+		<p><strong>Views:</strong> 0</p>
+	</div><!--/Views-->
+
 	<div class="clear"></div>
 </div><!--/Container-->
 
 <div id="tags"><!--Tags-->
 	<ul>
+		<li>Tags:</li>
 		<li><a href="">Water</a></li>
 		<li><a href="">Sanitation</a></li>
 		<li><a href="">Schools</a></li>
@@ -36,23 +34,5 @@
 		<li><a href="">Districts</a></li>
 	</ul>
 </div><!--/Tags-->
-
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-	/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-	// required: replace example with your forum shortname
-	var disqus_shortname = 'yipl'; 
-
-  /* * * DON'T EDIT BELOW THIS LINE * * */
-  (function() {
-      var dsq = document.createElement('script'); 
-			dsq.type = 'text/javascript'; 
-			dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-  })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 <%= render :partial => 'footer' %>

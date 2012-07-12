@@ -1,12 +1,14 @@
-class OpenDataController < ApplicationController
-	
+require 'csv'
+
+class OpenDataController < ApplicationController	
+
 	layout 'open_data'	
 
 	def index
 		
 	end
 
-	def page
+	def infographics
 		@districts = DistrictGirlSanitationCommunitySchool.all.to_a.slice(0..74)
 
     respond_to do |format|

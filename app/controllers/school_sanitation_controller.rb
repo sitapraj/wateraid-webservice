@@ -1,5 +1,3 @@
-require 'csv'
-
 class SchoolSanitationController < ApplicationController
   
 	layout 'school_sanitation'
