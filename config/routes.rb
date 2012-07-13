@@ -21,16 +21,15 @@ WateraidWebservice::Application.routes.draw do
   end
   
 	# Water Sanitation APPs Routes
-  get 'school_sanitation/search'
+  get 'school_sanitation/district_school_sanitation'
+	get 'school_sanitation/export_to_csv'
   get 'school_sanitation/wateraid'
 	get 'school_sanitation/wateraid_with_district'
-  resources :school_sanitation
   
 	# Open Data Routes	
 	get 'open_data/apps'
 	get 'open_data/datasets'
 	get 'open_data/infographics'
-	get 'open_data/export_to_csv'
 
   root :to => 'open_data#index'
 end
