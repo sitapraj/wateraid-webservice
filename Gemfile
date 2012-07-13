@@ -6,7 +6,10 @@ gem 'mongoid', '~> 3.0.0'
 
 gem 'jquery-rails'
 
-gem 'rack-cors', :require => 'rack/cors'
+gem 'rabl'
+# Also add either `json` or `yajl-ruby` as the JSON parser
+
+gem 'yajl-ruby'
 
 # gem 'unicorn'
 gem 'thin'
