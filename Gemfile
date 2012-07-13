@@ -6,6 +6,8 @@ gem 'mongoid', '~> 3.0.0'
 
 gem 'jquery-rails'
 
+gem 'rack-cors', :require => 'rack/cors'
+
 # gem 'unicorn'
 gem 'thin'
 
