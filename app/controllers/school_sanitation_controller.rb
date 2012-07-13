@@ -3,16 +3,12 @@ class SchoolSanitationController < ApplicationController
 	layout 'school_sanitation'
  
 	def district_school_sanitation
-		@districts = DistrictGirlSanitationCommunitySchool.all
-		@district = Array.new
-		@districts.each do |d|
-			@district.push d.to_str
-		end
+		@districts = DistrictGirlSanitationCommunitySchool.collection.find.select(_id: 0).to_a
 
     respond_to do |format|
       format.html 
-      format.xml { render :xml => @district.slice(0..74) }
-      format.json { render :json => @district.slice(0..74) }
+      format.xml { render :xml => @districts.slice(0..74) }
+      format.json { render :json => @districts.slice(0..74) }
     end	
 	end
 	
