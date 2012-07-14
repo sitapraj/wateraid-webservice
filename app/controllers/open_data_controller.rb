@@ -1,5 +1,3 @@
-require 'csv'
-
 class OpenDataController < ApplicationController	
 
 	layout 'open_data'
