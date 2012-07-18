@@ -45,7 +45,7 @@ class SchoolSanitationController < ApplicationController
       end
     end
 
-    # send it to the browsah
+    # send it to the browser
     send_data csv_string, 
       :type => 'text/csv; charset=iso-8859-1; header=present', 
       :disposition => "attachment; filename=district_school_sanitation.csv"
