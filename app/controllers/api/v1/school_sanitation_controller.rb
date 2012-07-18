@@ -1,54 +1,114 @@
 module Api
   module V1
     class Api::V1::SchoolSanitationController < ApplicationController
-      respond_to :json
+      respond_to :json, :js
       
       def index
-        respond_with DistrictGirlSanitationCommunitySchool.all
+				@district_sanitation = DistrictGirlSanitationCommunitySchool.all
+
+        respond_with(@district_sanitation) do |format|
+					format.json { render :json => @district_sanitation }
+					format.js { render :json => @district_sanitation, :callback => params[:callback] }
+				end
       end
       
       def search
-        respond_with DistrictGirlSanitationCommunitySchool.where(:districts => params[:district].upcase).first
+				@district = DistrictGirlSanitationCommunitySchool.where(:districts => params[:district].upcase).first
+
+				respond_with(@district) do |format|
+					format.json { render :json => @district }
+					format.js { render :json => @district, :callback => params[:callback] }
+				end				
       end
       
       def total_number_of_community_school
-        respond_with DistrictGirlSanitationCommunitySchool.sum(:total_no_of_community_schools).to_i
+				@total_school = DistrictGirlSanitationCommunitySchool.sum(:total_no_of_community_schools).to_i
+				
+				respond_with(@district_sanitation) do |format|
+					format.json { render :json => @total_school }
+					format.js { render :json => @total_school, :callback => params[:callback] }
+				end 
       end
       
       def total_no_of_schools_with_toilet_facilities
-        respond_with DistrictGirlSanitationCommunitySchool.sum(:total_no_of_schools_with_toilet_facilities).to_i
+				@school_toilet = DistrictGirlSanitationCommunitySchool.sum(:total_no_of_schools_with_toilet_facilities).to_i
+
+				respond_with(@school_toilet) do |format|
+					format.json { render :json => @school_toilet }
+					format.js { render :json => @school_toilet, :callback => params[:callback] }
+				end
       end
       
       def percentage_of_schools_with_toilet_facilities
-        respond_with DistrictGirlSanitationCommunitySchool.avg(:percentage_of_schools_with_toilet_facilities).to_i
+				@percent_school = DistrictGirlSanitationCommunitySchool.avg(:percentage_of_schools_with_toilet_facilities).to_i
+				
+				respond_with(@percent_school) do |format|
+					format.json { render :json => @percent_school }
+					format.js { render :json => @percent_school, :callback => params[:callback] }
+				end
       end
       
       def total_no_of_toilet_facilities_inclusive_of_each_toilet_item
-        respond_with DistrictGirlSanitationCommunitySchool.sum(:total_no_of_toilet_facilities_inclusive_of_each_toilet_item).to_i
+        @total_no_toilet = DistrictGirlSanitationCommunitySchool.sum(:total_no_of_toilet_facilities_inclusive_of_each_toilet_item).to_i
+
+				respond_with(@total_no_toilet) do |format|
+					format.json { render :json => @total_no_toilet }
+					format.js { render :json => @total_no_toilet, :callback => params[:callback] }
+				end
       end
       
       def total_no_of_toilets_for_girl_students_with_items_facilities
-        respond_with DistrictGirlSanitationCommunitySchool.sum(:total_no_of_toilets_for_girl_students_with_items_facilities).to_i
+        @total_toilets_girls = DistrictGirlSanitationCommunitySchool.sum(:total_no_of_toilets_for_girl_students_with_items_facilities).to_i
+
+				respond_with(@total_toilets_girls) do |format|
+					format.json { render :json => @total_toilets_girls }
+					format.js { render :json => @total_toilets_girls, :callback => params[:callback] }
+				end				
       end
       
       def percentage_of_separate_toilets_for_girls_with_items_facilities
-        respond_with DistrictGirlSanitationCommunitySchool.avg(:percentage_of_separate_toilets_for_girls_with_items_facilities).to_i
+        @avg_percent_toilets = DistrictGirlSanitationCommunitySchool.avg(:percentage_of_separate_toilets_for_girls_with_items_facilities).to_i
+
+				respond_with(@avg_percent_toilets) do |format|
+					format.json { render :json => @avg_percent_toilets }
+					format.js { render :json => @avg_percent_toilets, :callback => params[:callback] }
+				end
       end
       
       def percentage_of_schools_with_separate_toilets_for_girls
-        respond_with DistrictGirlSanitationCommunitySchool.avg(:percentage_of_separate_toilets_for_girls_with_items_facilities).to_i
+        @percent_separate_toilets_girls = DistrictGirlSanitationCommunitySchool.avg(:percentage_of_separate_toilets_for_girls_with_items_facilities).to_i
+
+				respond_with(@percent_separate_toilets_girls) do |format|
+					format.json { render :json => @percent_separate_toilets_girls }
+					format.js { render :json => @percent_separate_toilets_girls, :callback => params[:callback] }
+				end
       end
       
       def total_students_boys_and_girls
-        respond_with DistrictGirlSanitationCommunitySchool.sum(:total_students_boys_and_girls).to_i
+      	@total_student = DistrictGirlSanitationCommunitySchool.sum(:total_students_boys_and_girls).to_i
+
+				respond_with(@total_student) do |format|
+					format.json { render :json => @total_student }
+					format.js { render :json => @total_student, :callback => params[:callback] }
+				end
       end
       
       def percentage_of_schools_with_separate_toilets_for_girls
-        respond_with DistrictGirlSanitationCommunitySchool.avg(:percentage_of_schools_with_separate_toilets_for_girls).to_i
+        @percent_school_girls = DistrictGirlSanitationCommunitySchool.avg(:percentage_of_schools_with_separate_toilets_for_girls).to_i
+
+				respond_with(@percent_school_girls) do |format|
+					format.json { render :json => @percent_school_girls }
+					format.js { render :json => @percent_school_girls, :callback => params[:callback] }
+				end
       end
       
       def total_no_districts
-        respond_with DistrictGirlSanitationCommunitySchool.count() - 1
+        @total_district = DistrictGirlSanitationCommunitySchool.count() - 1
+
+				respond_with(@total_district) do |format|
+					format.json { render :json => @total_district }
+					format.js { render :json => @total_district, :callback => params[:callback] }				
+				end
       end
 
 			def list_of_districts
@@ -56,7 +116,11 @@ module Api
 				DistrictGirlSanitationCommunitySchool.each do |sanitation|
   				@districts.push p sanitation.districts
 				end
-				respond_with @districts
+
+				respond_with(@districts) do |format|
+					format.json { render :json => @districts }
+					format.js { render :json => @districts, :callback => params[:callback] }				
+				end
 			end
 
 			def list_of_districts_all
@@ -64,9 +128,30 @@ module Api
 				DistrictGirlSanitationCommunitySchool.each do |district|
 					@districts.push p district.districts
 				end
-				respond_with @districts.slice(0..74)
+
+				respond_with(@districts) do |format|
+					format.json { render :json => @districts.slice(0..74) }
+					format.js { render :json => @districts.slice(0..74), :callback => params[:callback] }				
+				end
 			end
+
+			def toilet_to_student_ratio
+				@ratio = DistrictGirlSanitationCommunitySchool.where(:districts => params[:district].upcase).first.toilet_to_student_ratio
+
+				@r = remove_colon(@ratio)				
+
+				respond_with(@r) do |format|
+					format.json { render :json => @r }
+					format.js { render :json => @r, :callback => params[:callback] }
+				end				
+			end
+
+			private
+			def remove_colon(string)
+				firstRatio = string[0]
+				secondRatio = string.slice(2..string.length)
+  			return firstRatio << secondRatio
+			end		
 		end
   end
 end
-
