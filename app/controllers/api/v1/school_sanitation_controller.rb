@@ -4,11 +4,11 @@ module Api
       respond_to :json, :js
       
       def index
-				@district_sanitation = DistrictGirlSanitationCommunitySchool.all
+				@district = DistrictGirlSanitationCommunitySchool.collection.find.select(_id: 0).to_a
 
-        respond_with(@district_sanitation) do |format|
-					format.json { render :json => @district_sanitation }
-					format.js { render :json => @district_sanitation, :callback => params[:callback] }
+        respond_with(@district) do |format|
+					format.json { render :json => @district }
+					format.js { render :json => @district, :callback => params[:callback] }
 				end
       end
       
