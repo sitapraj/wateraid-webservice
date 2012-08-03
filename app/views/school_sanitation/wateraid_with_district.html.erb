@@ -62,56 +62,55 @@
 		});	
 		
   });
-</script>
 
-<script type="text/javascript">
-		google.load("visualization", "1", {packages:["corechart"]});
-		google.setOnLoadCallback(drawChart);
-	
-		function drawChart() {
-			drawToiletFacilitiesChart();
-			drawToiletForGirlsChart();
-			drawSeparateToiletForGirlsChart();
-		}
-	
-		function drawToiletFacilitiesChart() {
-			$.getJSON(url, function(data) {
-				var vdata = google.visualization.arrayToDataTable([
-					['Toilet', 'Percent'],
-					['School with Toilet', data.percentage_of_schools_with_toilet_facilities],
-					['School without Toilet', (100-data.percentage_of_schools_with_toilet_facilities)]
-				]);
-		    
-				var chart = new google.visualization.PieChart(document.getElementById('chart-schools-with-toilet'));
-				chart.draw(vdata);
-			});
-		}
-	
-	 	function drawToiletForGirlsChart() {
-			$.getJSON(url, function(data) {
-				var vdata = google.visualization.arrayToDataTable([
-					['Toilet For Girls', 'Percent'],
-					['Separate Toilets for Girls', data.percentage_of_separate_toilets_for_girls_with_items_facilities],
-					['Without Separate Toilets for Girls', (100-data.percentage_of_separate_toilets_for_girls_with_items_facilities)]
-				]);
-		    
-				var chart = new google.visualization.PieChart(document.getElementById('chart-separate-toilets-for-girls'));
-				chart.draw(vdata);
-			});
-		}
+	// Google Pie Chart Visualization
+	google.load("visualization", "1", {packages:["corechart"]});
+	google.setOnLoadCallback(drawChart);
 
-		function drawSeparateToiletForGirlsChart() {
-			$.getJSON(url, function(data) {
-				var vdata = google.visualization.arrayToDataTable([
-					['Toilet', 'Percent'],
-					['Schools with Separate Toilets for Girls', data.percentage_of_schools_with_separate_toilets_for_girls],
-					['Schools without Separate Toilets for Girls', (100-data.percentage_of_schools_with_separate_toilets_for_girls)]
-				]);
-		    
-				var chart = new google.visualization.PieChart(document.getElementById('chart-schools-with-separate-toilets-for-girls'));
-				chart.draw(vdata);
-			});
-		}
+	function drawChart() {
+		drawToiletFacilitiesChart();
+		drawToiletForGirlsChart();
+		drawSeparateToiletForGirlsChart();
+	}
+
+	function drawToiletFacilitiesChart() {
+		$.getJSON(url, function(data) {
+			var vdata = google.visualization.arrayToDataTable([
+				['Toilet', 'Percent'],
+				['School with Toilet', data.percentage_of_schools_with_toilet_facilities],
+				['School without Toilet', (100-data.percentage_of_schools_with_toilet_facilities)]
+			]);
+	    
+			var chart = new google.visualization.PieChart(document.getElementById('chart-schools-with-toilet'));
+			chart.draw(vdata);
+		});
+	}
+
+ 	function drawToiletForGirlsChart() {
+		$.getJSON(url, function(data) {
+			var vdata = google.visualization.arrayToDataTable([
+				['Toilet For Girls', 'Percent'],
+				['Separate Toilets for Girls', data.percentage_of_separate_toilets_for_girls_with_items_facilities],
+				['Without Separate Toilets for Girls', (100-data.percentage_of_separate_toilets_for_girls_with_items_facilities)]
+			]);
+	    
+			var chart = new google.visualization.PieChart(document.getElementById('chart-separate-toilets-for-girls'));
+			chart.draw(vdata);
+		});
+	}
+
+	function drawSeparateToiletForGirlsChart() {
+		$.getJSON(url, function(data) {
+			var vdata = google.visualization.arrayToDataTable([
+				['Toilet', 'Percent'],
+				['Schools with Separate Toilets for Girls', data.percentage_of_schools_with_separate_toilets_for_girls],
+				['Schools without Separate Toilets for Girls', (100-data.percentage_of_schools_with_separate_toilets_for_girls)]
+			]);
+	    
+			var chart = new google.visualization.PieChart(document.getElementById('chart-schools-with-separate-toilets-for-girls'));
+			chart.draw(vdata);
+		});
+	}
 </script>
 
 <div id="top">
