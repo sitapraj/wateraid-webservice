@@ -1,131 +1,130 @@
 <script type="text/javascript">
-  $(document).ready(function() {
-    $.getJSON('/api/v1/school_sanitation/total_number_of_community_school', function(data) {      
-      $('#community-school').html(numberWithCommas(data));
-			console.log(numberWithCommas(data));
-    });
-    
-    $.getJSON('/api/v1/school_sanitation/total_no_of_schools_with_toilet_facilities', function(data) {      
-      $('#toilet-facilities').html(numberWithCommas(data));
-      $('#schools-with-toilet-value').html('(' + numberWithCommas(data) + ')');      
-    });
-    
-    $.getJSON('/api/v1/school_sanitation/percentage_of_schools_with_toilet_facilities', function(data) {      
-      $('#schools-with-toilet-percent').html(data + '%');
-    });
-    
-    $.getJSON('/api/v1/school_sanitation/total_no_of_toilets_for_girl_students_with_items_facilities', function(data) {      
-      $('#separate-toilets-for-girls').html('(' + numberWithCommas(data) + ')');
-    });
-    
-		$.getJSON('/api/v1/school_sanitation/percentage_of_separate_toilets_for_girls_with_items_facilities', function(data) {      
-      $('#separate-toilets-for-girls-percent').html(data + '%');
-    });
-    
-    $.getJSON('/api/v1/school_sanitation/total_students_boys_and_girls', function(data) {      
-      $('#total-students').html(numberWithCommas(data));
-    });
-    
-    $.getJSON('/api/v1/school_sanitation/percentage_of_schools_with_separate_toilets_for_girls', function(data) {      
-      $('#schools-with-separate-toilets-for-girls-percent').html(data + '%');
-    });
+$(document).ready(function() {
+  $.getJSON('/api/v1/school_sanitation/total_number_of_community_school', function(data) {      
+    $('#community-school').html(numberWithCommas(data));
+		console.log(numberWithCommas(data));
+  });
+  
+  $.getJSON('/api/v1/school_sanitation/total_no_of_schools_with_toilet_facilities', function(data) {      
+    $('#toilet-facilities').html(numberWithCommas(data));
+    $('#schools-with-toilet-value').html('(' + numberWithCommas(data) + ')');      
+  });
+  
+  $.getJSON('/api/v1/school_sanitation/percentage_of_schools_with_toilet_facilities', function(data) {      
+    $('#schools-with-toilet-percent').html(data + '%');
+  });
+  
+  $.getJSON('/api/v1/school_sanitation/total_no_of_toilets_for_girl_students_with_items_facilities', function(data) {      
+    $('#separate-toilets-for-girls').html('(' + numberWithCommas(data) + ')');
+  });
+  
+	$.getJSON('/api/v1/school_sanitation/percentage_of_separate_toilets_for_girls_with_items_facilities', function(data) {      
+    $('#separate-toilets-for-girls-percent').html(data + '%');
+  });
+  
+  $.getJSON('/api/v1/school_sanitation/total_students_boys_and_girls', function(data) {      
+    $('#total-students').html(numberWithCommas(data));
+  });
+  
+  $.getJSON('/api/v1/school_sanitation/percentage_of_schools_with_separate_toilets_for_girls', function(data) {      
+    $('#schools-with-separate-toilets-for-girls-percent').html(data + '%');
+  });
 
-		$.getJSON('/api/v1/school_sanitation/search?utf8=✓&district=OVERALL', function(data) {
-			var ratio = data.toilet_to_student_ratio;		
-			var firstRatio = divideFirstRatio(ratio);
-			var secondRatio = divideSecondRatio(ratio);
+	$.getJSON('/api/v1/school_sanitation/search?utf8=✓&district=OVERALL', function(data) {
+		var ratio = data.toilet_to_student_ratio;		
+		var firstRatio = divideFirstRatio(ratio);
+		var secondRatio = divideSecondRatio(ratio);
 
-    	console.log(firstRatio);
-    	console.log(secondRatio);
-			$('#first-ratio').html(firstRatio);
-			$('#second-ratio').html(secondRatio);
-    });
+  	console.log(firstRatio);
+  	console.log(secondRatio);
+		$('#first-ratio').html(firstRatio);
+		$('#second-ratio').html(secondRatio);
+  });
 
-		$('select').change(function() {
-			window.top.location.href = '/school_sanitation/wateraid_with_district?utf8=✓&district=' + $(this).attr('value');
-		});
-
-		$('.district-menu').hide();
-		$('#overall').hover(			
-			function() {
-				$('#overall a').css("background-color", "#14a5c8");
-				$(".district-menu").hover(
-					function() {
-						$('#overall a').css("background-color", "#14a5c8");						
-						$('.district-menu').stop().slideDown(100);						
-					},
-					function() {	
-						$('#overall a').css("background-color", "#00cdff");					
-						$('.district-menu').slideUp(100);					
-					}
-				);				
-				$('.district-menu').stop().slideDown(100);
-			},
-			function() {
-				$('#overall a').css("background-color", "#00cdff");
-				$('.district-menu').slideUp(100);
-			}
-		);
-		
-		$.ajax({
-  		url: '/api/v1/school_sanitation/list_of_districts',
-  		success: function(data) {    		
-    		for(var d=0; d<data.length; d++) {
-						$("#ul-district-lists").append('<li><a href="/school_sanitation/wateraid_with_district?utf8=✓&district='+ data[d] + '">' + data[d] + '</a></li>');
-				}
-  		}
-		});
+	$('select').change(function() {
+		window.top.location.href = '/school_sanitation/wateraid_with_district?utf8=✓&district=' + $(this).attr('value');
 	});
-</script>
 
-<script type="text/javascript">
-		google.load("visualization", "1", {packages:["corechart"]});
-		google.setOnLoadCallback(drawChart);
-	
-		function drawChart() {
-			drawToiletFacilitiesChart();
-			drawToiletForGirlsChart();
-			drawSeparateToiletForGirlsChart();
+	$('.district-menu').hide();
+	$('#overall').hover(			
+		function() {
+			$('#overall a').css("background-color", "#14a5c8");
+			$(".district-menu").hover(
+				function() {
+					$('#overall a').css("background-color", "#14a5c8");						
+					$('.district-menu').stop().slideDown(100);						
+				},
+				function() {	
+					$('#overall a').css("background-color", "#00cdff");					
+					$('.district-menu').slideUp(100);					
+				}
+			);				
+			$('.district-menu').stop().slideDown(100);
+		},
+		function() {
+			$('#overall a').css("background-color", "#00cdff");
+			$('.district-menu').slideUp(100);
 		}
-	
-		function drawToiletFacilitiesChart() {
-			$.getJSON('/api/v1/school_sanitation/percentage_of_schools_with_toilet_facilities', function(data) {
-				var vdata = google.visualization.arrayToDataTable([
-					['Toilet', 'Percent'],
-					['School with Toilet', data],
-					['School without Toilet', (100-data)]
-				]);
-		    
-				var chart = new google.visualization.PieChart(document.getElementById('chart-schools-with-toilet'));
-				chart.draw(vdata);
-			});
+	);
+		
+	$.ajax({
+		url: '/api/v1/school_sanitation/list_of_districts',
+		success: function(data) {    		
+			for(var d=0; d<data.length; d++) {
+				$("#ul-district-lists").append('<li><a href="/school_sanitation/wateraid_with_district?utf8=✓&district='+ data[d] + '">' + data[d] + '</a></li>');
+			}
 		}
-	
-	 	function drawToiletForGirlsChart() {
-			$.getJSON('/api/v1/school_sanitation/percentage_of_separate_toilets_for_girls_with_items_facilities', function(data) {
-				var vdata = google.visualization.arrayToDataTable([
-					['Toilet For Girls', 'Percent'],
-					['Separate Toilets for Girls', data],
-					['Without Separate Toilets for Girls', (100-data)]
-				]);
-		    
-				var chart = new google.visualization.PieChart(document.getElementById('chart-separate-toilets-for-girls'));
-				chart.draw(vdata);
-			});
-		}
+	});
+});
 
-		function drawSeparateToiletForGirlsChart() {
-			$.getJSON('/api/v1/school_sanitation/percentage_of_schools_with_separate_toilets_for_girls', function(data) {
-				var vdata = google.visualization.arrayToDataTable([
-					['Toilet', 'Percent'],
-					['Schools with Separate Toilets for Girls', data],
-					['Schools without Separate Toilets for Girls', (100-data)]
-				]);
-		    
-				var chart = new google.visualization.PieChart(document.getElementById('chart-schools-with-separate-toilets-for-girls'));
-				chart.draw(vdata);
-			});
-		}		
+// Google Pie Chart Visualization
+google.load("visualization", "1", {packages:["corechart"]});
+google.setOnLoadCallback(drawChart);
+
+function drawChart() {
+	drawToiletFacilitiesChart();
+	drawToiletForGirlsChart();
+	drawSeparateToiletForGirlsChart();
+}
+
+function drawToiletFacilitiesChart() {
+	$.getJSON('/api/v1/school_sanitation/percentage_of_schools_with_toilet_facilities', function(data) {
+		var vdata = google.visualization.arrayToDataTable([
+			['Toilet', 'Percent'],
+			['School with Toilet', data],
+			['School without Toilet', (100-data)]
+		]);
+    
+		var chart = new google.visualization.PieChart(document.getElementById('chart-schools-with-toilet'));
+		chart.draw(vdata);
+	});
+}
+
+	function drawToiletForGirlsChart() {
+	$.getJSON('/api/v1/school_sanitation/percentage_of_separate_toilets_for_girls_with_items_facilities', function(data) {
+		var vdata = google.visualization.arrayToDataTable([
+			['Toilet For Girls', 'Percent'],
+			['Separate Toilets for Girls', data],
+			['Without Separate Toilets for Girls', (100-data)]
+		]);
+    
+		var chart = new google.visualization.PieChart(document.getElementById('chart-separate-toilets-for-girls'));
+		chart.draw(vdata);
+	});
+}
+
+function drawSeparateToiletForGirlsChart() {
+	$.getJSON('/api/v1/school_sanitation/percentage_of_schools_with_separate_toilets_for_girls', function(data) {
+		var vdata = google.visualization.arrayToDataTable([
+			['Toilet', 'Percent'],
+			['Schools with Separate Toilets for Girls', data],
+			['Schools without Separate Toilets for Girls', (100-data)]
+		]);
+    
+		var chart = new google.visualization.PieChart(document.getElementById('chart-schools-with-separate-toilets-for-girls'));
+		chart.draw(vdata);
+	});
+}		
 </script>
 
 <div id="top">
