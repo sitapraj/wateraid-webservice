@@ -2,8 +2,8 @@
 	var url = "/api/v1/school_sanitation/search?utf8=✓&district=<%= @district.districts %>"; 	
 
 	$(document).ready(function() {
-    $.getJSON(url, function(data) {      
-      $('#community-school').html(numberWithCommas(data.total_no_of_community_schools));
+    	$.getJSON(url, function(data) {      
+      		$('#community-school').html(numberWithCommas(data.total_no_of_community_schools));
 			$('#toilet-facilities').html(numberWithCommas(data.total_no_of_schools_with_toilet_facilities));
 			$('#schools-with-toilet-value').html('(' + numberWithCommas(data.total_no_of_schools_with_toilet_facilities) + ')');
 			$('#schools-with-toilet-percent').html(data.percentage_of_schools_with_toilet_facilities + '%');
@@ -11,20 +11,20 @@
 			$('#separate-toilets-for-girls-percent').html(data.percentage_of_separate_toilets_for_girls_with_items_facilities + '%');
 			$('#total-students').html(numberWithCommas(data.total_students_boys_and_girls));
 			$('#schools-with-separate-toilets-for-girls-percent').html(data.percentage_of_schools_with_separate_toilets_for_girls + '%');
-			console.log(data);
-			
+
 			var ratio = data.toilet_to_student_ratio;		
 			var firstRatio = divideFirstRatio(ratio);
 			var secondRatio = divideSecondRatio(ratio);
 
-    	console.log(firstRatio);
-    	console.log(secondRatio);
+    		
 			$('#first-ratio').html(firstRatio);
 			$('#second-ratio').html(secondRatio);
+			console.log(firstRatio);
+    		console.log(secondRatio);
 
 			$('#district-numbers').html('#' + data.districts_ranked_by_girl_students_access_to_school_sanitation);
 			console.log(data.districts_ranked_by_girl_students_access_to_school_sanitation);
-    });
+    	});
 
 		$('select').change(function() {
 			window.top.location.href = '/school_sanitation/wateraid_with_district?utf8=✓&district=' + $(this).attr('value');
@@ -53,15 +53,15 @@
 		);
 		
 		$.ajax({
-  		url: '/api/v1/school_sanitation/list_of_districts',
-  		success: function(data) {
-    		for(var d=0; d<data.length; d++) {					
+  			url: '/api/v1/school_sanitation/list_of_districts',
+  			success: function(data) {
+    			for(var d=0; d<data.length; d++) {					
 					$("#ul-district-lists").append('<li><a href="/school_sanitation/wateraid_with_district?utf8=✓&district='+ data[d] + '">' + data[d] + '</a></li>');	
 				}
-  		}
+  			}
 		});	
 		
-  });
+  	});
 
 	// Google Pie Chart Visualization
 	google.load("visualization", "1", {packages:["corechart"]});
