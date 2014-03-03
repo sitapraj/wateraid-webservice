@@ -18,7 +18,6 @@ WateraidWebservice::Application.routes.draw do
 			get 'school_sanitation/list_of_districts'
 			get 'school_sanitation/list_of_districts_all'
 			get 'school_sanitation/toilet_to_student_ratio'
-      get 'school_sanitation/total_toilet_to_student_ratio'
     end
   end
   

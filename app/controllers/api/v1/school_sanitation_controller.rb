@@ -145,17 +145,6 @@ module Api
 				end				
 			end
 
-			def total_toilet_to_student_ratio
-				#TODO: Convert the :total_to_student_ratio into numeric value and pass it on remove_colon.
-				@total_ratio = DistrictGirlSanitationCommunitySchool.sum(:toilet_to_student_ratio).to_i
-				#@tr = remove_colon(@total_ratio)
-
-				respond_with(@total_ratio) do |format|
-					format.json { render :json => @total_ratio }
-					format.js { render :json => @total_ratio, :callback => params[:callback] }
-				end
-			end
-
 			private
 			def remove_colon(string)
 				firstRatio = string[0]
